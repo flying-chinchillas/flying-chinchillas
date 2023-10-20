@@ -1,10 +1,10 @@
-import './Login.css';
+import './Signup.css';
 import React, {useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import {  createUserWithEmailAndPassword, signInWithEmailAndPassword  } from 'firebase/auth';
+import {  createUserWithEmailAndPassword  } from 'firebase/auth';
 import { auth } from '../../firebase';
  
-const Login = () => {
+const Signup = () => {
     const navigate = useNavigate();
  
     const [email, setEmail] = useState('')
@@ -13,7 +13,7 @@ const Login = () => {
     const onSubmit = async (e) => {
       e.preventDefault()
      
-      await signInWithEmailAndPassword(auth, email, password)
+      await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
@@ -70,15 +70,15 @@ const Login = () => {
                             type="submit" 
                             onClick={onSubmit}                        
                         >  
-                            Log in                               
+                            Sign up                                
                         </button>
                                                                      
                     </form>
                    
                     <p>
-                        Don't have an account?{' '}
-                        <NavLink to="/signup" >
-                            Sign up
+                        Already have an account?{' '}
+                        <NavLink to="/login" >
+                            Sign in
                         </NavLink>
                     </p>                   
                 </div>
@@ -88,4 +88,4 @@ const Login = () => {
   )
 }
  
-export default Login
+export default Signup
