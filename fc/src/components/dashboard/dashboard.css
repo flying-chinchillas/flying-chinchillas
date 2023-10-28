@@ -1,0 +1,16 @@
+.country-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin: 2vh;
+    margin-left: 10vh;
+    margin-right: 10vh;
+}
+
+#country-name{
+    margin: 2vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    border-radius: 10px;
+    font-family: "Agbalumo";
+    font-size: 20px;
+} 
