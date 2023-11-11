@@ -3,12 +3,12 @@ import * as React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Dashboard from '../DashboardComponents/dashboard/dashboard';
-import login from '../login/login';
+import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 
 function App() {
 
-  const [currentRoute, setCurrentRoute] = React.useState('/');
+  const [currentRoute, setCurrentRoute] = React.useState('/login');
 
 
   return (

@@ -1,7 +1,8 @@
-import "./Dashboard.css";
+import "./dashboard.css";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
+import Logout from '../../Logout/Logout';
 
 // Logs out user
 export default function Dashboard() {
@@ -19,7 +20,7 @@ export default function Dashboard() {
 
   return (
     <div className={"country-grid"}>
-
+      <Logout />
       {countries.map((country) => (
       <button id={"country-name"} key={country}>
         {country}

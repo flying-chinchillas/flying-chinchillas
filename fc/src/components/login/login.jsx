@@ -1,4 +1,4 @@
-import './Login.css';
+import './login.css';
 import React, {useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {  createUserWithEmailAndPassword, signInWithEmailAndPassword  } from 'firebase/auth';
@@ -85,7 +85,7 @@ const Login = () => {
             </div>
         </section>
     </main>
-  )
+  );
 }
  
 export default Login
