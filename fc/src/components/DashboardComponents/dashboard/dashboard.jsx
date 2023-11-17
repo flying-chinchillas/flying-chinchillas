@@ -25,7 +25,7 @@ export default function Dashboard() {
     <div className={"country-grid"}>
       {countries.map((country) => (
         <button id={"country-name"} key={country}>
-        <CountryIcon/>
+        <CountryIcon className={"country-icon"}/>
           {country}
         </button>
         )
