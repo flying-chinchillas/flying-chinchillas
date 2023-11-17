@@ -3,6 +3,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import DashboardSearch from "../DashboardSearch/DashboardSearch";
+import CountryIcon from "../CountryIcon/CountryIcon";
 
 // Logs out user
 export default function Dashboard() {
@@ -23,9 +24,11 @@ export default function Dashboard() {
       <DashboardSearch/>
     <div className={"country-grid"}>
       {countries.map((country) => (
-      <button id={"country-name"} key={country}>
-        {country}
-      </button>)
+        <button id={"country-name"} key={country}>
+        <CountryIcon/>
+          {country}
+        </button>
+        )
       )}
     </div>
     </div>

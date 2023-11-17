@@ -1,12 +1,12 @@
 /* Change the color of links on hover */
 .country-search button:hover {
-    background-color: #a14cae;
+    background-color: #610bd9;
     color: white;
   }
   
 /* Style the "active" element to highlight the current page */
 .country-search button.active {
-background-color: #2196F3;
+background-color: #610bd9;
 color: white;
 }
 
@@ -23,9 +23,9 @@ margin-bottom: 1vw;
 font-size: 17px;
 border-radius: 6px;
 }
-
+/* #552dde; */
 .submit-button {
-background-color: #b87bd3;
+background-color: #3c62e4;
 border: none;
 color: white;
 padding-top: 1vw;
@@ -37,13 +37,14 @@ cursor: pointer;
 margin-left: 1vw;
 border-radius: 10px;
 }
+/* #3c62e4 */
 
 .country-search {
-    background-color: #aad5eb;
+    background-color: #e1d2ff;
     margin: 1.5vw;
     padding: 1vw;
-    margin-left: 30vw;
+    margin-left: 31vw;
     margin-right: 30vw;
-    margin-top: 2vw;
+    margin-top: 4vw;
     border-radius: 6px;
 }
