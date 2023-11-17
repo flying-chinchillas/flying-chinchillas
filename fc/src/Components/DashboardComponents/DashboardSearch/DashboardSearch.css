@@ -1,0 +1,49 @@
+/* Change the color of links on hover */
+.country-search button:hover {
+    background-color: #a14cae;
+    color: white;
+  }
+  
+/* Style the "active" element to highlight the current page */
+.country-search button.active {
+background-color: #2196F3;
+color: white;
+}
+
+/* Style the search box inside the navigation bar */
+.country-search input[type=text] {
+float: middle;
+padding-top: 0.85vw;
+padding-bottom: 0.85vw;
+padding-right: 13vw;
+margin-left: 2vw;
+border: none;
+margin-top: 1vw;
+margin-bottom: 1vw;
+font-size: 17px;
+border-radius: 6px;
+}
+
+.submit-button {
+background-color: #b87bd3;
+border: none;
+color: white;
+padding-top: 1vw;
+padding-bottom: 1vw;
+padding-left: 2vw;
+padding-right: 2vw;
+text-decoration: none;
+cursor: pointer;
+margin-left: 1vw;
+border-radius: 10px;
+}
+
+.country-search {
+    background-color: #aad5eb;
+    margin: 1.5vw;
+    padding: 1vw;
+    margin-left: 30vw;
+    margin-right: 30vw;
+    margin-top: 2vw;
+    border-radius: 6px;
+}

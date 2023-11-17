@@ -1,7 +1,8 @@
-import "./Dashboard.css";
+import "./dashboard.css";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
+import DashboardSearch from "../DashboardSearch/DashboardSearch";
 
 // Logs out user
 export default function Dashboard() {
@@ -18,13 +19,15 @@ export default function Dashboard() {
   } 
 
   return (
+    <div className={"dash"}>
+      <DashboardSearch/>
     <div className={"country-grid"}>
-
       {countries.map((country) => (
       <button id={"country-name"} key={country}>
         {country}
       </button>)
       )}
+    </div>
     </div>
   );
 }

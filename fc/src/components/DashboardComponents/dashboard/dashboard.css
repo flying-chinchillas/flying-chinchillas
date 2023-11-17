@@ -5,6 +5,9 @@
     margin-left: 10vh;
     margin-right: 10vh;
 }
+.dash {
+    display: grid;
+}
 
 #country-name{
     margin: 2vh;
