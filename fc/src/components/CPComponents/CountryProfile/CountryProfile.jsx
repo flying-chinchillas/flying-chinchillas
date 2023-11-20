@@ -1,73 +1,40 @@
-import './CountryProfile.css';
-import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import { getDatabase, ref, set } from 'firebase/database';
-
-
+import "./CountryProfile.css";
+import * as React from "react";
 
 export default function CountryProfile() {
-    const { country } = useParams();
+    const temp_reviews = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const vulnerable_grps = ["Senior Citizens", "Children", "Women", "Race", "Solo Travel", "LGBTQ+", "Disabilities", "Religion"];
 
-    // const [visibility, setVisibility] = React.useState("hidden");
-    // function popUp() {
-    //     if (visibility === "hidden") {
-    //       setVisibility("visible");
-    //     } else {
-    //       setVisibility("hidden");
-    //     }
-    //   } 
-    function writeCountryData(country){
-        console.log('entering into database');
-        const db = getDatabase();
-        const reference = ref(db, 'country/' + country)
-        set(reference, {
-            name: country,
-            rating: '3',
-            date: 'today'
-        });
-        console.log('done');
-    }
-    writeCountryData(country);
-    
-    
-    return (
-        <main >        
-            <section>
-                <div>
-                    <div> 
-                        <h1> { country } </h1>
-
-                        <div className="countryPic"> Picture of Country </div>
-
-                        <div className="countryInfo"> 
-                            <div id="cinf-ratings"> Ratings </div>
-                            <div id="cinf-addons"> Add-ons </div>
-                        </div>
-
-                        <div className="reviews">
-                            <div id="rev-header"> Reviews Header </div>
-                            <div id="rev-section"> Reviews Section </div>
-                        </div>
-                        
-                        <div className="vulnerableGroups">
-                            <div id="vg-header"> Vulnerable Groups Header </div>
-                            <div id="vg-section"> Groups Section </div>
-                                <div id="children"> Children </div>
-                                <div id="disabilities"> Disabilities </div>
-                                <div id="lgbtq+"> LGBTQ+ </div>
-                                <div id="race"> Race </div>
-                                <div id="religion"> Religion </div>
-                                <div id="senior-citizens"> Senior Citizens </div>
-                                <div id="senior-citizens"> Senior Citizens </div>
-                                <div id="solo-travel"> Solo Travel </div>
-                                <div id="women"> Women </div>
-
-                        </div>
-                    </div>
+  return (
+    <div className={"cp"}>
+        <div className={"side-bar"}> 
+            <img src={'https://cdn.pixabay.com/photo/2012/04/10/23/23/ecuador-26986_960_720.png'} alt="Flag" className={"flag-image"}/>
+            <div className={"overall-rating"}>
+                <div className={"o-r-header"}>
+                    <img src={"https://firebasestorage.googleapis.com/v0/b/flying-chinchillas.appspot.com/o/happy-chinchilla.png?alt=media&token=4cfaa0bf-1eb9-49ef-8612-41618227638c"} alt="Rating" className={"rating-image"}/>
                 </div>
-            </section>
-        </main>
-    )
+            </div>
+        </div>
+        <div className={"reviews"}>
+            <div className={"country-name"}>Name of Country</div>
+            <div className={"review-header"}>Reviews:</div>
+            <div className={"review-display"}>
+                {temp_reviews.map((review) => (
+                    <div className={"country-review"} key={review}>
+                        {review}
+                    </div>
+                    )
+                )}
+            </div>
+        </div>
+        <div className={"v-groups-display"}>
+            {vulnerable_grps.map((grp) => (
+                <div className={"vulnerable-tab"} key={grp}>
+                    {grp}
+                </div>
+                )
+            )}
+        </div>
+    </div>
+  );
 }
-

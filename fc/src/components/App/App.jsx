@@ -7,7 +7,6 @@ import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 import CountryProfile from '../CPComponents/CountryProfile/CountryProfile';
 
-
 function App() {
 
   const [currentRoute, setCurrentRoute] = React.useState('/');

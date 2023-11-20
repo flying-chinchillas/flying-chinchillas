@@ -1,7 +1,9 @@
-import "./Dashboard.css";
+import "./dashboard.css";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
+import DashboardSearch from "../DashboardSearch/DashboardSearch";
+import CountryIcon from "../CountryIcon/CountryIcon";
 
 // Logs out user
 export default function Dashboard() {
@@ -23,13 +25,16 @@ export default function Dashboard() {
   }
 
   return (
+    <div className={"dash"}>
+      <DashboardSearch/>
     <div className={"country-grid"}>
-
       {countries.map((country) => (
       <button id={"country-name"} key={country} onClick={() => handleClick(country)}>
+        <CountryIcon className={"country-icon"}/>
         {country}
       </button>)
       )}
+    </div>
     </div>
   );
 }
