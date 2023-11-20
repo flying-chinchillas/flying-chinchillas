@@ -1,6 +1,12 @@
-.cp {
+.head-cp {
     background: linear-gradient(rgba(253,252,255) 0%, rgba(225, 210, 255) 100%);
     max-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+}
+
+.cp {
+    max-height: 80vh;
     overflow: scroll;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
