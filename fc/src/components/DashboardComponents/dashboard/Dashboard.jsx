@@ -17,11 +17,16 @@ export default function Dashboard() {
     }
   } 
 
+  function handleClick(country) {
+    console.log('its happening o');
+    navigate(`/countryprofile/${country}`);
+  }
+
   return (
     <div className={"country-grid"}>
 
       {countries.map((country) => (
-      <button id={"country-name"} key={country}>
+      <button id={"country-name"} key={country} onClick={() => handleClick(country)}>
         {country}
       </button>)
       )}
