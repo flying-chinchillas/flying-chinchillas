@@ -19,16 +19,20 @@ export default function Dashboard() {
     }
   } 
 
+  function handleClick(country) {
+    console.log('its happening o');
+    navigate(`/countryprofile/${country}`);
+  }
+
   return (
     <div className={"dash"}>
       <DashboardSearch/>
     <div className={"country-grid"}>
       {countries.map((country) => (
-        <button id={"country-name"} key={country}>
+      <button id={"country-name"} key={country} onClick={() => handleClick(country)}>
         <CountryIcon className={"country-icon"}/>
-          {country}
-        </button>
-        )
+        {country}
+      </button>)
       )}
     </div>
     </div>
