@@ -3,6 +3,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import Logout from '../../Logout/Logout';
+import UserProfile from "../../UserProfileComponents/UserProfile/UserProfile";
 
 // Logs out user
 export default function Dashboard() {
@@ -26,6 +27,7 @@ export default function Dashboard() {
         {country}
       </button>)
       )}
+      <UserProfile />
     </div>
   );
 }
