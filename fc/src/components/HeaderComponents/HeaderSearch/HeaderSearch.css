@@ -2,6 +2,7 @@
     display: flex; 
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 /* Change the color of links on hover */
 .header-search button:hover {
@@ -25,6 +26,15 @@ color: white;
     border-color: blue; /* Adjust to match the focus border color */
 }
 
+.header-search .fa-search {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #606060; /* Color of the icon */
+    pointer-events: none;
+}
+
 /* Style the search box inside the navigation bar */
 .header-search input[type=text] {
     display: flex; 
@@ -34,7 +44,6 @@ color: white;
     margin: 45px 400px;
     border: 2px solid rgba(155, 121, 214); 
     border-radius: 15px;
-    box-shadow: 0px 4px 8px rgba(155, 121, 214); 
     flex-grow: 1; /* Allow the input to grow to fill available space */
 }
 /* #552dde; */
