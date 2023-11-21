@@ -1,12 +1,19 @@
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { getAuth } from "firebase/auth";
+
 
 
 function UserProfile() {
     const fileInput = useRef();
+    const storage = getStorage();
+    const auth = getAuth();
+    const userId = auth.currentUser.uid;
+
+    const storageRef = ref(storage, 'pfimages/' + userId);
+
 
     const getFile = (file) => {
-        const storage = getStorage();
 
         // Create the file metadata
         /** @type {any} */
@@ -15,7 +22,6 @@ function UserProfile() {
         };
 
         // Upload file and metadata to the object 'pfimages/filename.jpg'
-        const storageRef = ref(storage, 'pfimages/' + file.name);
         const uploadTask = uploadBytesResumable(storageRef, file, metadata);
 
         // Listen for state changes, errors, and completion of the upload.
