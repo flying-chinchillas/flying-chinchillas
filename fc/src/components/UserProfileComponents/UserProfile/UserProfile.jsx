@@ -10,24 +10,36 @@ function UserProfile() {
     const auth = getAuth();
     const userId = auth.currentUser.uid;
 
+    const [imgUrl, setImgUrl] = useState(null);
     const storageRef = ref(storage, 'pfimages/' + userId);
 
+    
+    const getPFPic = () => {
+        getDownloadURL(storageRef)
+        .then((url) => {
+            setImgUrl(url);
+        }).catch((error) => {
+            const storageRefDefault = ref(storage, 'pfimages/chinchy.jpg');
+            getDownloadURL(storageRefDefault)
+            .then((url) => {
+                setImgUrl(url);
+            }).catch((error) => {
+                console.log(error);
+            });
+        });
+    }
 
     const getFile = (file) => {
 
-        // Create the file metadata
         /** @type {any} */
         const metadata = {
         contentType: 'image/jpeg'
         };
 
-        // Upload file and metadata to the object 'pfimages/filename.jpg'
         const uploadTask = uploadBytesResumable(storageRef, file, metadata);
 
-        // Listen for state changes, errors, and completion of the upload.
         uploadTask.on('state_changed',
         (snapshot) => {
-            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             console.log('Upload is ' + progress + '% done');
             switch (snapshot.state) {
@@ -48,6 +60,7 @@ function UserProfile() {
             // Upload completed successfully, now we can get the download URL
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             console.log('File available at', downloadURL);
+            getPFPic();
             });
         }
         );
@@ -61,10 +74,13 @@ function UserProfile() {
         }
     }
 
+    getPFPic();
     return (
         <div>
             <input type="file" ref={fileInput} />
             <button onClick={handleUpload}>Upload</button>
+            <img src={imgUrl} alt='profile' />
+
         </div>
     );
 
