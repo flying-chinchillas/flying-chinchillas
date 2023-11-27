@@ -1,0 +1,8 @@
+.profile {
+    display: flex;
+}
+
+.editPfPic {
+    display: flex;
+    flex-direction: column;
+}

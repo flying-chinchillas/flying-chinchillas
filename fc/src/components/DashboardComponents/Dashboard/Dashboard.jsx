@@ -26,10 +26,19 @@ export default function Dashboard() {
     navigate(`/countryprofile/${country}`);
   }
 
+  // temporary-delete
+  function gotoProfile(){
+    navigate('/userprofile')
+  }
+
   return (
     <div className={"dash"}>
       <Logout />
       <DashboardSearch/>
+
+      {/* temporary-delete */}
+      <button onClick={() => gotoProfile()}>Profile</button>
+
     <div className={"country-grid"}>
       {countries.map((country) => (
       <button id={"country-name"} key={country} onClick={() => handleClick(country)}>
@@ -37,7 +46,6 @@ export default function Dashboard() {
         {country}
       </button>)
       )}
-      <UserProfile />
     </div>
     </div>
   );
