@@ -7,11 +7,13 @@ import './UserProfile.css';
 function UserProfile() {
     const fileInput = useRef();
     const storage = getStorage();
-    const auth = getAuth();
-    const userId = auth.currentUser.uid;
+    const auth = getAuth().currentUser;
+    const userId = auth.uid;
+    const userEmail = auth.email;
 
     const [imgUrl, setImgUrl] = useState(null);
     const [reviews, setReviews] = useState([]);
+    const [update, setUpdate] = useState(null);
     const storageRef = ref(storage, 'pfimages/' + userId);
 
     const db = getDatabase();
@@ -81,6 +83,16 @@ function UserProfile() {
             console.log('No file selected');
         }
     }
+    function closeForm() {
+        document.getElementById("popup").style.display = "none";
+        // document.getElementById("heading").style.opacity = "100%";
+        // document.getElementById("library").style.opacity = "100%";
+      }
+      function openForm() {
+        document.getElementById("popup").style.display = "flex";
+        // document.getElementById("heading").style.opacity = "20%";
+        // document.getElementById("library").style.opacity = "20%";
+    }
 
     getPFPic();
     return (
@@ -89,10 +101,19 @@ function UserProfile() {
             {/* Left side */}
             <div className="accountInfo">
                 <img src={imgUrl} alt='profile' />
-                <div className="editPfPic">
+                <div className="editPfPic" id="editPfPic">
                     <input type="file" ref={fileInput} />
                     <button onClick={handleUpload}>Upload</button>
+
+
+                    {/* here */}
+
+                    <button onClick={(event) =>openForm(event.target.id)}>Open</button>
                 </div>
+                <div className="email">
+                    Email: {userEmail} <button>Edit</button>
+                </div>
+                <button id="password">Change Password</button>
             </div>
 
             {/* Middle Section */}
@@ -121,6 +142,19 @@ function UserProfile() {
                 <div className="favContainer">Favorite Countries
                     <div className="countries">Country 1</div>
                 </div>
+            </div>
+
+            {/* popup form */}
+            <div class="popup" id="popup">
+                <form class="form" id="form">
+                    <h1>Change </h1>
+                    <div className="inputContainer">
+                        <label for="change"><b>Author</b></label>
+                        <input type="text" id="change" name="change" required></input>
+                        </div>
+                    <button type="button" class="submit" onClick={closeForm}>Submit</button>
+                    <button type="button" class="cancel" onClick={closeForm}>X</button>
+                </form>
             </div>
 
         </div>
