@@ -39,6 +39,8 @@ export default function Dashboard() {
           {country}
         </button>)
         )}
+      <UserProfile />
+    </div>
     </div>
   );
 }
