@@ -1,9 +1,11 @@
 import "./CountryProfile.css";
-import * as React from "react";
+import React, { useState } from 'react';
 import CPMap from "../CPMap/CPMap";
 import countryInfo from '../../../countryInfo.json';
 import { useParams } from 'react-router-dom';
 import CountryIcon from "../../DashboardComponents/CountryIcon/CountryIcon";
+import "@fontsource/mochiy-pop-p-one";
+import '@fontsource-variable/montserrat';
 
 export default function CountryProfile() {
     const temp_reviews = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -12,11 +14,14 @@ export default function CountryProfile() {
     const formattedCountryName = country.charAt(0).toUpperCase() + country.slice(1);
     const countryData = countryInfo[formattedCountryName];
     const position = [parseFloat(countryData.lat), parseFloat(countryData.long)];
+    const [isFavorited, setIsFavorited] = useState(false);
 
     function handleClick(country) {
         console.log('its happening o');
       }
-
+    const handleFavoriteClick = () => {
+        setIsFavorited(!isFavorited);
+    };
   return (
     <div className={"cp"}>
         <div className={"side-bar"}> 
@@ -25,15 +30,27 @@ export default function CountryProfile() {
                 <div className={"o-r-header"}>
                     Rating: <img src={"https://firebasestorage.googleapis.com/v0/b/flying-chinchillas.appspot.com/o/happy-chinchilla.png?alt=media&token=4cfaa0bf-1eb9-49ef-8612-41618227638c"} alt="Rating" className={"rating-image"}/>
                 </div>
-                Flag: <CountryIcon countryCode={countryData.code}/>
-                Rating published date:
-                Country code: {countryData.code.toUpperCase()}
-                
+                <div className={"o-r-subsection"}>
+                    <div className={"o-r-s-flag"}>
+                        Flag: <CountryIcon countryCode={countryData.code}/>
+                    </div>
+                    <div className={"o-r-s-date"}>
+                        Rating published date:
+                    </div>
+                    <div className={"o-r-s-code"}>
+                        Country code: {countryData.code.toUpperCase()}
+                    </div>
+                </div>
             </div>
         </div>
         <div className={"reviews"}>
-            <div className={"country-name"}>{country}</div>
-            <div className={"review-header"}>Reviews:</div>
+            <div className={"country-name"}>
+                {country}
+                <div className={`heart ${isFavorited ? 'clicked' : ''}`} onClick={handleFavoriteClick}>
+                    {isFavorited ? '❤' : '♡'}
+                </div>
+            </div>
+            <div className={"review-header"}>Reviews</div>
             <div className={"review-display"}>
                 {temp_reviews.map((review) => (
                     <div className={"country-review"} key={review}>
