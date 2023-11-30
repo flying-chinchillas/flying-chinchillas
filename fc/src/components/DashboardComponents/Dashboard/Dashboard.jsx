@@ -41,6 +41,7 @@ export default function Dashboard() {
           {country}
         </button>)
         )}
+      </div>
     </div>
   );
 }
