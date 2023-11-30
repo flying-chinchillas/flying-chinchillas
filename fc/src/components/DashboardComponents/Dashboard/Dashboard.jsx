@@ -2,6 +2,8 @@ import "./Dashboard.css";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
+import Logout from '../../Logout/Logout';
+import UserProfile from "../../UserProfileComponents/UserProfile/UserProfile";
 import DashboardSearch from "../DashboardSearch/DashboardSearch";
 import CountryIcon from "../CountryIcon/CountryIcon";
 import countryInfo from "../../../countryInfo.json";
@@ -27,6 +29,7 @@ export default function Dashboard() {
 
   return (
     <div className={"dash"}>
+      <Logout />
       <DashboardSearch/>
       <div className={"country-grid"}>
         {/* {countries.map((country) => ( */}
@@ -36,7 +39,6 @@ export default function Dashboard() {
           {country}
         </button>)
         )}
-      </div>
     </div>
   );
 }
