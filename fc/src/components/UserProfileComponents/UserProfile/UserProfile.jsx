@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 
 
 function UserProfile() {
+    const temp_reviews = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const fileInput = useRef();
 
     const getFile = (file) => {
@@ -56,9 +57,35 @@ function UserProfile() {
     }
 
     return (
-        <div>
+        <div className={"up-dash"}>
             <input type="file" ref={fileInput} />
             <button onClick={handleUpload}>Upload</button>
+            <div className={"v-groups-display"}/>
+            <div className={"reviews"}>
+                <div className={"country-name"}>Name of Country</div>
+                <div className={"review-header"}>Reviews:</div>
+                <div className={"review-display"}>
+                    {temp_reviews.map((review) => (
+                        <div className={"country-review"} key={review}>
+                            {review}
+                        </div>
+                        )
+                    )}
+                </div>
+            </div>
+            
+            <div className={"side-bar"}> 
+                <div className={"visited-countries"}>
+                    <div className={"v-c-header"}>
+                        <img src={"https://firebasestorage.googleapis.com/v0/b/flying-chinchillas.appspot.com/o/happy-chinchilla.png?alt=media&token=4cfaa0bf-1eb9-49ef-8612-41618227638c"} alt="Rating" className={"rating-image"}/>
+                    </div>
+                </div>
+                <div className={"overall-rating"}>
+                    <div className={"o-r-header"}>
+                        <img src={"https://firebasestorage.googleapis.com/v0/b/flying-chinchillas.appspot.com/o/happy-chinchilla.png?alt=media&token=4cfaa0bf-1eb9-49ef-8612-41618227638c"} alt="Rating" className={"rating-image"}/>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 
