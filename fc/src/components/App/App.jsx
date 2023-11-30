@@ -1,7 +1,6 @@
 import './App.css';
 import * as React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import Dashboard from '../DashboardComponents/Dashboard/Dashboard';
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
@@ -9,7 +8,7 @@ import CountryProfile from '../CPComponents/CountryProfile/CountryProfile';
 
 function App() {
 
-  const [currentRoute, setCurrentRoute] = React.useState('/');
+  const [currentRoute, setCurrentRoute] = React.useState('/login');
 
 
   return (
