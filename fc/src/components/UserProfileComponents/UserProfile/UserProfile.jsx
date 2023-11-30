@@ -1,7 +1,7 @@
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { getDatabase, ref as dbref, onValue, get } from 'firebase/database';
 import React, { useRef, useState, useEffect } from 'react';
-import { getAuth } from "firebase/auth";
+import { getAuth, updatePassword, reload, verifyBeforeUpdateEmail, fetchSignInMethodsForEmail} from "firebase/auth";
 import './UserProfile.css';
 
 function UserProfile() {
@@ -19,7 +19,6 @@ function UserProfile() {
     const db = getDatabase();
     useEffect(() => {
         onValue(dbref(db, 'user/' + userId + '/reviews'), (snapshot) => {
-            // setReviews([]);
             const data = snapshot.val();
             if (data) {
                 const reviewIds = Object.values(data);
@@ -46,7 +45,7 @@ function UserProfile() {
             .then((url) => {
                 setImgUrl(url);
             }).catch((error) => {
-                console.log(error);
+                // console.log(error);
             });
         });
     }
@@ -65,10 +64,9 @@ function UserProfile() {
             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         }, 
         (error) => {
-            console.log("error");
+            // console.log("error");
         }, 
         () => {
-            // Upload completed successfully, now we can get the download URL
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             getPFPic();
             });
@@ -85,56 +83,79 @@ function UserProfile() {
     }
     function closeForm() {
         document.getElementById("popup").style.display = "none";
-        // document.getElementById("heading").style.opacity = "100%";
-        // document.getElementById("library").style.opacity = "100%";
+        // document.getElementById("heading").style.opacity = "100%"; replace heading
       }
-      function openForm() {
+      function openForm(changeInfo) {
         document.getElementById("popup").style.display = "flex";
-        // document.getElementById("heading").style.opacity = "20%";
-        // document.getElementById("library").style.opacity = "20%";
+        setUpdate(changeInfo);
+        // document.getElementById("heading").style.opacity = "20%"; replace heading 
+    }
+
+    function submitChange(event) {
+        event.preventDefault();
+        const change = document.getElementById("change").value;
+        if (update === "password"){
+
+            updatePassword(auth, change).then(() => {
+                console.log('success');
+            }).catch((error) => {
+                console.log(error);             
+            });    
+        }
+        else if (update === "email"){
+            verifyBeforeUpdateEmail(auth, change).then(() => {
+                console.log('success');
+            }).catch((error) => {
+                console.log(error);             
+            });
+        }
+        closeForm();
+        document.querySelector('#form').reset();
+
     }
 
     getPFPic();
+
     return (
         <div className="profile">
 
-            {/* Left side */}
+            {/* Left side: user info */}
             <div className="accountInfo">
                 <img src={imgUrl} alt='profile' />
                 <div className="editPfPic" id="editPfPic">
                     <input type="file" ref={fileInput} />
                     <button onClick={handleUpload}>Upload</button>
-
-
-                    {/* here */}
-
-                    <button onClick={(event) =>openForm(event.target.id)}>Open</button>
+                    {/* <button id="File" onClick={(event) =>openForm(event.target.id)}>Open</button> */}
                 </div>
                 <div className="email">
-                    Email: {userEmail} <button>Edit</button>
+                    Email: {userEmail} <button id="email" onClick={(event) =>openForm(event.target.id)}>Edit</button>
                 </div>
-                <button id="password">Change Password</button>
+                <button id="password" onClick={(event) =>openForm(event.target.id)}>Change Password</button>
             </div>
 
-            {/* Middle Section */}
-            <div className="reviewContainer">Reviews
-                <div className="reviews">
-                    {reviews.map((review, index) => (
-                        <div key={index}>
-                            {/* Replace this with the structure of your review data */}
-                            <h2>{review.title}</h2>
-                            <h3>{review.country}</h3>
-                            <p>{review.date}</p>
-                            <p>Likes: {review.likes}</p>
-                            <p>Dislikes: {review.dislikes}</p>
-                            <p>Rating: {review.rating}</p>
-                            <p>{review.desc}</p>
-                        </div>
-                    ))}
-                </div>
+            {/* Middle Section: reviews created by user */}
+            <div className="reviewContainer">Reviews Created
+                {reviews.length > 0 ? (
+                    <div className="reviews">
+                        {reviews.map((review, index) => (
+                            <div key={index}>
+                                {/* Replace this with the structure of your review data */}
+                                <h2>{review.title}</h2>
+                                <h3>{review.country}</h3>
+                                <p>{review.date}</p>
+                                <p>Likes: {review.likes}</p>
+                                <p>Dislikes: {review.dislikes}</p>
+                                <p>Rating: {review.rating}</p>
+                                <p>{review.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div>No reviews yet</div>
+                )}
             </div>
 
-            {/* Right side */}
+            {/* Right side: visited/fav countries */}
             <div className="rightSide">
                 <div className="visitedContainer">Visited Countries
                     <div className="countries">Country 1</div>
@@ -145,15 +166,28 @@ function UserProfile() {
             </div>
 
             {/* popup form */}
-            <div class="popup" id="popup">
-                <form class="form" id="form">
-                    <h1>Change </h1>
+            <div className="popup" id="popup">
+                <form className="form" id="form">
+                    <h1>Change { update }</h1>
                     <div className="inputContainer">
-                        <label for="change"><b>Author</b></label>
-                        <input type="text" id="change" name="change" required></input>
+                        <label htmlFor="change"><b>{ update }</b></label>
+                        <input type={update} id="change" name="change" required></input>
                         </div>
-                    <button type="button" class="submit" onClick={closeForm}>Submit</button>
-                    <button type="button" class="cancel" onClick={closeForm}>X</button>
+                    <button type="button" className="submit" onClick={submitChange}>Submit</button>
+                    <button type="button" className="cancel" onClick={closeForm}>X</button>
+                </form>
+            </div>
+            
+            {/* change attempt status popup */}
+            <div className="popup" id="popupStatus">
+                <form className="form" id="form">
+                    <h1>Change { update }</h1>
+                    <div className="inputContainer">
+                        <label htmlFor="change"><b>{ update }</b></label>
+                        <input type={update} id="change" name="change" required></input>
+                        </div>
+                    <button type="button" className="submit" onClick={submitChange}>Submit</button>
+                    <button type="button" className="cancel" onClick={closeForm}>X</button>
                 </form>
             </div>
 
