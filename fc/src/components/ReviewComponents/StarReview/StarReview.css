@@ -1,0 +1,21 @@
+/* StarReview.css */
+.star-rating {
+  font-size: 20px; /* Fixed pixel value for font size */
+  color: rgb(188, 187, 187);
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the stars horizontally */
+  position: relative;
+  top: -310px; /* Fixed pixel value for vertical position upward */
+  left: 11vw; /* Fixed pixel value for horizontal position to the right */
+}
+
+.star {
+  cursor: pointer;
+  font-size: 17px; /* Fixed pixel value for star size */
+  margin-right: 0.5vw; /* Fixed pixel value for margin-right */
+}
+
+.filled {
+  color: rgb(141, 75, 192);
+}

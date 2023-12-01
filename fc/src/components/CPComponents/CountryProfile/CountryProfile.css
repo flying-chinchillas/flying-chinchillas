@@ -10,6 +10,7 @@
     overflow: scroll;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+    font-family: 'Mochiy Pop P One';
 }
 
 .flag-image {
@@ -28,6 +29,10 @@
     background-color: rgba(217, 219, 238);
     padding: 1vw;
   }
+
+.o-r-subsection {
+    font-family: 'Montserrat Variable';
+}
 .overall-rating {
     background-color: rgba(146, 157, 235);
     padding-bottom: 25vh;
@@ -93,6 +98,21 @@
     margin-left: 1.8vw;
     margin-top: 2vh;
     border-radius: 7px;
-    padding-left: 3vw;
-    padding-top: 2.5vh;
+    /* padding-left: 3vw;
+    padding-top: 2.5vh; */
+    font-size: 100%;
+    font-family: 'Montserrat Variable';
+}
+
+.vulnerable-tab:hover {
+    background-color: rgba(217, 219, 238);
+}
+
+.heart {
+    color: rgba(217, 219, 238);
+    cursor: pointer;
+}
+
+.heart.clicked {
+    color: rgba(217, 219, 238);
 }

@@ -17,9 +17,10 @@
     padding-top: 3vh;
     padding-bottom: 3vh;
     border-radius: 10px;
-    font-family: "Agbalumo";
+    font-family: 'Montserrat Variable';
     font-size: 20px;
 } 
+
 .country-icon {
     background: none;
 }

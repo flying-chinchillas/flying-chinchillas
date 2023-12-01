@@ -1,10 +1,12 @@
-import './Signup.css';
+import './Login.css';
 import React, {useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import {  createUserWithEmailAndPassword  } from 'firebase/auth';
+import {  createUserWithEmailAndPassword, signInWithEmailAndPassword  } from 'firebase/auth';
 import { auth } from '../../firebase';
+import "@fontsource/mochiy-pop-p-one";
+import '@fontsource-variable/montserrat'; 
  
-const Signup = () => {
+const Login = () => {
     const navigate = useNavigate();
  
     const [email, setEmail] = useState('')
@@ -13,7 +15,7 @@ const Signup = () => {
     const onSubmit = async (e) => {
       e.preventDefault()
      
-      await createUserWithEmailAndPassword(auth, email, password)
+      await signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
@@ -34,17 +36,17 @@ const Signup = () => {
   return (
     <main >        
         <section>
-            <div className='signup-box'>
+            <div className='login-box'>                                                                                            
                 <div>
                     <img src = {'https://firebasestorage.googleapis.com/v0/b/flying-chinchillas.appspot.com/o/Logo-flying-chinchilla.png?alt=media&token=04a409dc-c35b-4123-8f9f-d18112b2044a'} alt="Logo" className={"logo-image"} />
-                </div>                 
-                <h2> Sign up </h2>                                                                                                                                                         
-                <label className='signup-label'
+                </div>
+                <h2> Login </h2>                                                                                            
+                <label className='login-label'
                     htmlFor="email-address"
                 >
                     Email address
                 </label>
-                <input className='signup-input'
+                <input className='login-input'
                     type="email"
                     label="Email address"
                     value={email}
@@ -53,37 +55,41 @@ const Signup = () => {
                     //placeholder="Email address"                                
                 />
 
-                <label className='signup-label'
+                <label className='login-label'
                     htmlFor="password"
                 >
                     Password
                 </label>
-                <input className='signup-input'
+                <input className='login-input'
                     type="password"
                     label="Create password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)} 
-                    required                                 
+                    onChange={(e) => setPassword(e.target.value)}  
+                    required                                                    
                     //placeholder="Password"              
-                   />                                           
-                    
-                <button className='signup-button'
+                /> 
+
+                <button className='login-button'
                     type="submit" 
                     onClick={onSubmit}                        
                 >  
-                    Sign up                                
-                </button> 
-                
-                <label className='signup-label'>
-                    Already have an account? {' '}
-                    <NavLink to="/login" >
-                        Sign in
-                    </NavLink> 
-                </label>                  
+                    Login                               
+                </button>
+                                                                     
+                <label className='login-label'>
+                    Don't have an account?
+                </label> 
+                   
+                <label className='login-label'>
+                    <NavLink to="/signup" >
+                        Sign up
+                    </NavLink>
+                    {' '}to discover exciting travel destinations!
+                </label>                 
             </div>
         </section>
     </main>
-  )
+  );
 }
  
-export default Signup
+export default Login

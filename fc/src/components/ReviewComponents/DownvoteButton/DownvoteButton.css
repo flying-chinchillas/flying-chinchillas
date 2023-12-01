@@ -1,0 +1,29 @@
+.downvote-container {
+  position: relative;
+ /* Adjusted the right value to create space between upvote and downvote */
+  text-align: right;
+  top: 120px;
+  left: 30.5vw;
+  display: inline-block; /* Added this line to make the container inline-block */
+}
+
+.downvote-button {
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  outline: none; /* Remove outline (if any) */
+  background: none;
+}
+
+.downvote-count {
+  font-size: 15px;
+  color: #ffa3ff;
+  border: none;
+  outline: none; /* Remove outline (if any) */
+  background: none; /* Remove background (if any) */
+  
+}
+
+
+
+
