@@ -1,4 +1,5 @@
 import "./CountryProfile.css";
+import HeaderSearch from "../../HeaderComponents/HeaderSearch/HeaderSearch";
 import React, { useState } from 'react';
 import CPMap from "../CPMap/CPMap";
 import countryInfo from '../../../countryInfo.json';
@@ -27,6 +28,9 @@ export default function CountryProfile() {
         setIsFavorited(!isFavorited);
     };
   return (
+
+<div className={"head-cp"}>
+        <HeaderSearch/>
     <div className={"cp"}>
         <div className={"side-bar"}> 
             <CPMap position={position}/>
@@ -65,14 +69,12 @@ export default function CountryProfile() {
                         <ReplyButton></ReplyButton>
                         <StarReview></StarReview>
                        
-
                     </div>
                     )
                 )}
             </div>
         </div>
         <div className={"v-groups-display"}>
-            
             {vulnerable_grps.map((grp) => (
                 <button className={"vulnerable-tab"} key={grp} onClick={() => handleClick(grp)}>
                     {grp} 
@@ -80,8 +82,7 @@ export default function CountryProfile() {
                 )
             )}
         </div>
-        
-        
     </div>
-  );
+</div>
+);
 }
