@@ -6,7 +6,7 @@ import countryInfo from "../../../countryInfo.json";
 
 
 export default function HeaderSearch(props) {
-    const [baseCountries, setBaseCountries] = React.useState(Object.keys(countryInfo).sort());
+    const [baseCountries] = React.useState(Object.keys(countryInfo).sort());
     const [searchTerm, setSearchTerm] = React.useState("");
 
     function search() {
@@ -33,9 +33,7 @@ export default function HeaderSearch(props) {
     
     return (
         <div className={"header-search"}>
-            {/* <FontAwesomeIcon icon={faSearch} className="search-icon" /> */}
             <input type="text" placeholder="Search for a Country..." onChange={handleTermChange} onKeyUp={handleKeyPress.bind(this)}></input>
-            {/* <button className={"submit-button"}>Submit</button> */}
         </div>
     );
 }
