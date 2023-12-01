@@ -75,6 +75,7 @@ export default function CountryProfile() {
             </div>
         </div>
         <div className={"v-groups-display"}>
+            <div className={"v-groups-header"}>Vulnerable Groups</div>
             {vulnerable_grps.map((grp) => (
                 <button className={"vulnerable-tab"} key={grp} onClick={() => handleClick(grp)}>
                     {grp} 

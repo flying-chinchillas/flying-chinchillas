@@ -7,7 +7,6 @@
 }
 .dash {
     display: grid;
-    background: linear-gradient(rgba(253,252,255) 0%, rgba(225, 210, 255) 100%);
     max-height: 100vh;
     overflow: scroll;
 }
@@ -23,4 +22,10 @@
 
 .country-icon {
     background: none;
+}
+
+.dash-search {
+    position: absolute;
+    width: 100vw;
+    margin-bottom: 4vh;
 }
