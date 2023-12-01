@@ -116,3 +116,11 @@
 .heart.clicked {
     color: rgba(217, 219, 238);
 }
+
+.v-groups-header {
+    background-color: rgba(217, 219, 238);
+    padding-top: 2vh;
+    padding-bottom: 3vh;
+    padding-left: 2.5vw;
+
+}
