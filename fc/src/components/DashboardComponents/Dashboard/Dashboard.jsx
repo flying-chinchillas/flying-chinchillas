@@ -6,6 +6,8 @@ import Logout from '../../Logout/Logout';
 import DashboardSearch from "../DashboardSearch/DashboardSearch";
 import CountryIcon from "../CountryIcon/CountryIcon";
 import countryInfo from "../../../countryInfo.json";
+import "@fontsource/mochiy-pop-p-one";
+import '@fontsource-variable/montserrat';
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -38,6 +40,7 @@ export default function Dashboard() {
           {country}
         </button>)
         )}
+      </div>
     </div>
     </div>
   );
