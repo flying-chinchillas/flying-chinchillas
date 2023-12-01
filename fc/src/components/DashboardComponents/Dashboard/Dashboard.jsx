@@ -3,11 +3,11 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import Logout from '../../Logout/Logout';
-import DashboardSearch from "../DashboardSearch/DashboardSearch";
 import CountryIcon from "../CountryIcon/CountryIcon";
 import countryInfo from "../../../countryInfo.json";
 import "@fontsource/mochiy-pop-p-one";
 import '@fontsource-variable/montserrat';
+import HeaderSearch from "../../HeaderComponents/HeaderSearch/HeaderSearch";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -31,7 +31,10 @@ export default function Dashboard() {
   return (
     <div className={"dash"}>
       <Logout />
-      <DashboardSearch countryList={countryList} setCountryList={setCountryList}/>
+      <div className={"dash-search"}>
+      <HeaderSearch countryList={countryList} setCountryList={setCountryList}/>
+      </div>
+      {/* <DashboardSearch countryList={countryList} setCountryList={setCountryList}/> */}
       <div className={"country-grid"}>
         {/* {countries.map((country) => ( */}
         {countryList.map((country) => (

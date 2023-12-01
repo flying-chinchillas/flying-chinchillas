@@ -35,12 +35,11 @@
 }
 .overall-rating {
     background-color: rgba(146, 157, 235);
-    padding-bottom: 25vh;
+    padding-bottom: 4vh;
     border-radius: 10px;
 }
 .side-bar {
     margin: 2vw;
-    margin-top: 15vh;
     width: 25vw;
 }
 
@@ -70,23 +69,24 @@
 }
 
 .country-name {
-    margin-top: 15vh;
-    margin-bottom: 4vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
     background-color: rgba(155, 121, 214);
     padding: 2vw;
+    padding-bottom: 1vh;
     border-radius: 10px;
 }
 
 .reviews {
     display: grid;
-    grid-template-rows: 1fr 0.3fr 3fr;
+    grid-template-rows: 0.6fr 0.3fr 3fr;
 }
 
 .v-groups-display {
     background-color: rgba(146, 157, 235);
     margin-left: 5vw;
-    margin-top: 15vh;
-    margin-bottom: 27.82vh;
+    margin-top: 2vh;
+    margin-bottom: 19.8vh;
     margin-right: 2vw;
     border-radius: 10px;
 }

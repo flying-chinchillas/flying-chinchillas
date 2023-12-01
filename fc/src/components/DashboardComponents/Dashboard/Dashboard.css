@@ -24,3 +24,9 @@
 .country-icon {
     background: none;
 }
+
+.dash-search {
+    position: absolute;
+    width: 100vw;
+    margin-bottom: 4vh;
+}
