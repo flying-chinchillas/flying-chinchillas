@@ -1,0 +1,25 @@
+.upvote-container {
+  position: relative;
+  left: 30.3vw; /* Same as the star rating horizontal position */
+  top: 120px; /* Same as the star rating vertical position */
+  text-align: right;
+  display: inline-block;
+}
+
+.upvote-button {
+  font-size: 2vw; /* Adjust the font size using vw (viewport width) */
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.upvote-count {
+  font-size: 15px; /* Adjust the font size using vw */
+  color: #ffa3ff;
+}
+
+.status {
+  width: 17px;
+  height: 17px;
+  mix-blend-mode: multiply;
+}

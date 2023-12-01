@@ -1,11 +1,12 @@
 import "./CountryIcon.css";
 import * as React from "react";
 
-export default function CountryIcon() {
+export default function CountryIcon({countryCode}) {
+  const iconUrl = `https://flagcdn.com/${countryCode}.svg`;
 
   return (
     <div className={"cp-icon"}>
-        <img src={'https://cdn.pixabay.com/photo/2012/04/10/23/23/ecuador-26986_960_720.png'} alt="Flag"/>
+        <img id={"country-code"} src={iconUrl} alt='Flag'/>
     </div>
   );
 }
