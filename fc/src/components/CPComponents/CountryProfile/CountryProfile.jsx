@@ -7,6 +7,10 @@ import CountryIcon from "../../DashboardComponents/CountryIcon/CountryIcon";
 import CPTravelAdvisory from "../CPTravelAdvisory/CPTravelAdvisory";
 import "@fontsource/mochiy-pop-p-one";
 import '@fontsource-variable/montserrat';
+import UpvoteButton from '../../ReviewComponents/UpvoteButton/UpvoteButton';
+import DownvoteButton from '../../ReviewComponents/DownvoteButton/DownvoteButton';
+import ReplyButton from '../../ReviewComponents/ReplyButton/ReplyButton';
+import StarReview from "../../ReviewComponents/StarReview/StarReview";
 
 export default function CountryProfile() {
     const temp_reviews = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -53,14 +57,22 @@ export default function CountryProfile() {
             <div className={"review-header"}>Reviews</div>
             <div className={"review-display"}>
                 {temp_reviews.map((review) => (
+                    
                     <div className={"country-review"} key={review}>
                         {review}
+                        <UpvoteButton></UpvoteButton>
+                        <DownvoteButton></DownvoteButton>
+                        <ReplyButton></ReplyButton>
+                        <StarReview></StarReview>
+                       
+
                     </div>
                     )
                 )}
             </div>
         </div>
         <div className={"v-groups-display"}>
+            
             {vulnerable_grps.map((grp) => (
                 <button className={"vulnerable-tab"} key={grp} onClick={() => handleClick(grp)}>
                     {grp} 
@@ -68,6 +80,8 @@ export default function CountryProfile() {
                 )
             )}
         </div>
+        
+        
     </div>
   );
 }
