@@ -4,6 +4,7 @@ import CPMap from "../CPMap/CPMap";
 import countryInfo from '../../../countryInfo.json';
 import { useParams } from 'react-router-dom';
 import CountryIcon from "../../DashboardComponents/CountryIcon/CountryIcon";
+import CPTravelAdvisory from "../CPTravelAdvisory/CPTravelAdvisory";
 import "@fontsource/mochiy-pop-p-one";
 import '@fontsource-variable/montserrat';
 
@@ -28,14 +29,13 @@ export default function CountryProfile() {
             <CPMap position={position}/>
             <div className={"overall-rating"}>
                 <div className={"o-r-header"}>
-                    Rating: <img src={"https://firebasestorage.googleapis.com/v0/b/flying-chinchillas.appspot.com/o/happy-chinchilla.png?alt=media&token=4cfaa0bf-1eb9-49ef-8612-41618227638c"} alt="Rating" className={"rating-image"}/>
+                    <CPTravelAdvisory />
+                    <img src={"https://firebasestorage.googleapis.com/v0/b/flying-chinchillas.appspot.com/o/happy-chinchilla.png?alt=media&token=4cfaa0bf-1eb9-49ef-8612-41618227638c"} alt="Rating" className={"rating-image"}/>
+                    
                 </div>
                 <div className={"o-r-subsection"}>
                     <div className={"o-r-s-flag"}>
                         Flag: <CountryIcon countryCode={countryData.code}/>
-                    </div>
-                    <div className={"o-r-s-date"}>
-                        Rating published date:
                     </div>
                     <div className={"o-r-s-code"}>
                         Country code: {countryData.code.toUpperCase()}

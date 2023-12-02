@@ -1,20 +1,37 @@
-import Parser from 'rss-parser';
 import axios from 'axios';
+import { useState } from 'react';
 
-async function fetchSafetyData(country) {
-    const parser = new Parser();
-    const url = "https://travel.state.gov/_res/rss/TAsTWs.xml";
-    const feed = await parser.parseURL(url);
-    for(let entry of feed.items) {
-        if(entry.title.includes(country)) {
-            const safety = entry.categories[0];
-            const pubDate = entry.pubDate.substring(5);
-            return { pubDate, safety };
+export default function CPTravelAdvisory() {
+    const [rating, setRating] = useState("");
+
+    async function fetchSafetyData(country) {
+        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+        const targetUrl = "https://travel.state.gov/_res/rss/TAsTWs.xml";
+        const response = await fetch(proxyUrl + targetUrl);
+        const xmlString = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+        const items = xmlDoc.getElementsByTagName('item');
+        for(let i = 0; i < items.length; i++) {
+            const title = items[i].getElementsByTagName('title')[0].textContent;
+            if(title.includes(country)) {
+                const safety = items[i].getElementsByTagName('category')[0].textContent;
+                const pubDate = items[i].getElementsByTagName('pubDate')[0].textContent.substring(5);
+                return { pubDate, safety };
+            }
         }
+        console.log(`${country} not found`);
     }
-    console.log(`${country} not found`);
+
+    fetchSafetyData("South Korea").then(data => setRating(data));
+
+    return (
+        <div className="rating">
+            Rating: {rating}
+            <div className="pubdate">
+                Updated on {rating} 
+            </div>
+        </div>
+    )
 }
-
-fetchSafetyData("North Korea").then(data => console.log(data));
-
-// npm install rss-parser axios
+    // npm install rss-parser axios
