@@ -1,37 +1,29 @@
-import axios from 'axios';
 import { useState } from 'react';
 
-export default function CPTravelAdvisory() {
-    const [rating, setRating] = useState("");
+export default function CPTravelAdvisory(props) {
+    const [rating, setRating] = useState([]);
+    
 
     async function fetchSafetyData(country) {
-        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-        const targetUrl = "https://travel.state.gov/_res/rss/TAsTWs.xml";
-        const response = await fetch(proxyUrl + targetUrl);
-        const xmlString = await response.text();
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlString, "text/xml");
-        const items = xmlDoc.getElementsByTagName('item');
-        for(let i = 0; i < items.length; i++) {
-            const title = items[i].getElementsByTagName('title')[0].textContent;
-            if(title.includes(country)) {
-                const safety = items[i].getElementsByTagName('category')[0].textContent;
-                const pubDate = items[i].getElementsByTagName('pubDate')[0].textContent.substring(5);
-                return { pubDate, safety };
-            }
+        const targetUrl = "http://localhost:8000/";
+        const response = await fetch(targetUrl + country);
+        if (response.ok) {
+            const jsonString = await response.json();
+            setRating([jsonString['pub_data'], jsonString['safety']])
         }
-        console.log(`${country} not found`);
+        else if (!response.ok) {
+            setRating(['error', 'country not found'])
+        }
     }
 
-    fetchSafetyData("South Korea").then(data => setRating(data));
+    fetchSafetyData(props.country);
 
     return (
         <div className="rating">
-            Rating: {rating}
+            Rating - {rating[1]}
             <div className="pubdate">
-                Updated on {rating} 
+                Updated on {rating[0]} 
             </div>
         </div>
     )
 }
-    // npm install rss-parser axios

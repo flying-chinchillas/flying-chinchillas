@@ -33,7 +33,7 @@ export default function CountryProfile() {
             <CPMap position={position}/>
             <div className={"overall-rating"}>
                 <div className={"o-r-header"}>
-                    <CPTravelAdvisory />
+                    <CPTravelAdvisory country={country}/>
                     <img src={"https://firebasestorage.googleapis.com/v0/b/flying-chinchillas.appspot.com/o/happy-chinchilla.png?alt=media&token=4cfaa0bf-1eb9-49ef-8612-41618227638c"} alt="Rating" className={"rating-image"}/>
                     
                 </div>
@@ -51,7 +51,7 @@ export default function CountryProfile() {
             <div className={"country-name"}>
                 {country}
                 <div className={`heart ${isFavorited ? 'clicked' : ''}`} onClick={handleFavoriteClick}>
-                    {isFavorited ? '❤' : '♡'}
+                    {isFavorited ? '\u2665' : '\u2661'}
                 </div>
             </div>
             <div className={"review-header"}>Reviews</div>
