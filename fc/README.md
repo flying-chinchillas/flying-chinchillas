@@ -1,3 +1,9 @@
+# STUFF TO INSTALL
+
+`npm install react-modal`
+npm install @fontsource/mochiy-pop-p-one
+npm install @fontsource-variable/montserrat
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

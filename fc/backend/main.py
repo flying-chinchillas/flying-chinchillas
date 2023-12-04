@@ -3,6 +3,8 @@ import re
 import feedparser
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+# from fastapi_utils.tasks import repeat_every
+
 
 app = FastAPI()
 
@@ -21,7 +23,8 @@ async def main(country):
     data = fetch_safety_data(country)
     return data
 
-
+# @app.on_event("startup")
+# @repeat_every(seconds=60 * 60 * 24)  # 1 day
 def fetch_safety_data(country:str) -> tuple:
     """
         Input: desired country to fetch safety level

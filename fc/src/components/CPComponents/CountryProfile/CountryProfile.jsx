@@ -11,6 +11,8 @@ import UpvoteButton from '../../ReviewComponents/UpvoteButton/UpvoteButton';
 import DownvoteButton from '../../ReviewComponents/DownvoteButton/DownvoteButton';
 import ReplyButton from '../../ReviewComponents/ReplyButton/ReplyButton';
 import StarReview from "../../ReviewComponents/StarReview/StarReview";
+import Button from 'react-bootstrap/Button';
+import CreateReview from "../../ReviewComponents/CreateReview/CreateReview";
 
 export default function CountryProfile() {
     const temp_reviews = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -27,15 +29,17 @@ export default function CountryProfile() {
     const handleFavoriteClick = () => {
         setIsFavorited(!isFavorited);
     };
+
+    const [modalShow, setModalShow] = React.useState(false);
+
   return (
     <div className={"cp"}>
         <div className={"side-bar"}> 
             <CPMap position={position}/>
             <div className={"overall-rating"}>
                 <div className={"o-r-header"}>
-                    <CPTravelAdvisory country={country}/>
+                    {/* <CPTravelAdvisory country={country}/> */}
                     <img src={"https://firebasestorage.googleapis.com/v0/b/flying-chinchillas.appspot.com/o/happy-chinchilla.png?alt=media&token=4cfaa0bf-1eb9-49ef-8612-41618227638c"} alt="Rating" className={"rating-image"}/>
-                    
                 </div>
                 <div className={"o-r-subsection"}>
                     <div className={"o-r-s-flag"}>
@@ -54,7 +58,14 @@ export default function CountryProfile() {
                     {isFavorited ? '\u2665' : '\u2661'}
                 </div>
             </div>
-            <div className={"review-header"}>Reviews</div>
+            <div className={"review-header"}>Reviews
+                <Button variant="primary" onClick={() => setModalShow(true)}> + </Button>
+                <CreateReview  
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                    country={country}
+                />                
+            </div>
             <div className={"review-display"}>
                 {temp_reviews.map((review) => (
                     
@@ -64,15 +75,12 @@ export default function CountryProfile() {
                         <DownvoteButton></DownvoteButton>
                         <ReplyButton></ReplyButton>
                         <StarReview></StarReview>
-                       
-
                     </div>
                     )
                 )}
             </div>
         </div>
         <div className={"v-groups-display"}>
-            
             {vulnerable_grps.map((grp) => (
                 <button className={"vulnerable-tab"} key={grp} onClick={() => handleClick(grp)}>
                     {grp} 
@@ -80,8 +88,6 @@ export default function CountryProfile() {
                 )
             )}
         </div>
-        
-        
     </div>
   );
 }
