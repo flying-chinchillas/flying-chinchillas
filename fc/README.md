@@ -1,8 +1,10 @@
 # STUFF TO INSTALL
 
-`npm install react-modal`
-npm install @fontsource/mochiy-pop-p-one
-npm install @fontsource-variable/montserrat
+`npm install @fontsource/mochiy-pop-p-one`
+`npm install @fontsource-variable/montserrat`
+`npm install --save @fortawesome/react-fontawesome`
+`npm install --save @fortawesome/free-solid-svg-icons`
+`npm install --save @fortawesome/free-regular-svg-icons`
 
 # Getting Started with Create React App
 
