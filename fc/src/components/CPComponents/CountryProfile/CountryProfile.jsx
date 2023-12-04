@@ -4,7 +4,7 @@ import CPMap from "../CPMap/CPMap";
 import countryInfo from '../../../countryInfo.json';
 import { useParams } from 'react-router-dom';
 import CountryIcon from "../../DashboardComponents/CountryIcon/CountryIcon";
-import CPTravelAdvisory from "../CPTravelAdvisory/CPTravelAdvisory";
+// import CPTravelAdvisory from "../CPTravelAdvisory/CPTravelAdvisory";
 import "@fontsource/mochiy-pop-p-one";
 import '@fontsource-variable/montserrat';
 import UpvoteButton from '../../ReviewComponents/UpvoteButton/UpvoteButton';
