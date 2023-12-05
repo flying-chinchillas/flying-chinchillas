@@ -32,6 +32,7 @@ export default function Dashboard() {
     <div className={"dash"}>
       <Logout />
       <DashboardSearch/>
+      <button onClick={() => navigate(`/userprofile`)}>profile</button>
       <div className={"country-grid"}>
         {/* {countries.map((country) => ( */}
         {countryList.map((country) => (

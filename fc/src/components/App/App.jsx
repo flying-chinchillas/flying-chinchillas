@@ -5,6 +5,7 @@ import Dashboard from '../DashboardComponents/Dashboard/Dashboard';
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 import CountryProfile from '../CPComponents/CountryProfile/CountryProfile';
+import UserProfile from '../UserProfileComponents/UserProfile/UserProfile';
 
 function App() {
 
@@ -51,7 +52,13 @@ function App() {
               path="/countryprofile/:country"
               element={<CountryProfile />}
             />
+            <Route
+            path="/userprofile"
+            element={<UserProfile />}
+            />
           </Routes>
+        
+            
         </main>
       </BrowserRouter>
     </div>

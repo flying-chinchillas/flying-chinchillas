@@ -18,6 +18,7 @@ import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons';
 import { faMap as faSolidMap } from '@fortawesome/free-solid-svg-icons';
 import { faMap as faRegularMap} from '@fortawesome/free-regular-svg-icons';
+import ReviewDisplay from "../../ReviewComponents/ReviewDisplay/ReviewDisplay";
 
 export default function CountryProfile() {
     const temp_reviews = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -28,8 +29,9 @@ export default function CountryProfile() {
     const position = [parseFloat(countryData.lat), parseFloat(countryData.long)];
     const [isFavorited, setIsFavorited] = useState(false);
     const [visited, setVisited] = useState(false);
+    const [modalShow, setModalShow] = React.useState(false);
 
-    function handleClick(country) {
+    function handleClick() {
         console.log('its happening o');
       }
     const handleFavoriteClick = () => {
@@ -38,8 +40,6 @@ export default function CountryProfile() {
     const handleVisitedClick = () => {
         setVisited(!visited);
     }
-
-    const [modalShow, setModalShow] = React.useState(false);
 
   return (
     <div className={"cp"}>
@@ -85,7 +85,7 @@ export default function CountryProfile() {
                 />                
             </div>
             <div className={"review-display"}>
-                {temp_reviews.map((review) => (
+                {/* {temp_reviews.map((review) => (
                     
                     <div className={"country-review"} key={review}>
                         {review}
@@ -95,7 +95,8 @@ export default function CountryProfile() {
                         <StarReview></StarReview>
                     </div>
                     )
-                )}
+                )} */}
+                <ReviewDisplay country={country} />
             </div>
         </div>
         <div className={"v-groups-display"}>

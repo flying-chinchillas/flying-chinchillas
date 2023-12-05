@@ -4,10 +4,14 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import StarReview from "../StarReview/StarReview";
 import { Container, Row, Col, Form } from 'react-bootstrap';
+import { getDatabase, ref, set, push } from "firebase/database";
+import { getAuth } from "firebase/auth";
 
 export default function CreateReview(props) {
   const tags = ['senior-citizens', 'children', 'solo-travel', 'lgbtq+', 'women', 'race', 'disabilities', 'religion']
   const [rating, setRating] = React.useState(0);
+  const auth = getAuth().currentUser;
+  const userId = auth.uid;
 
   const handleRate = (newRating) => {
     setRating(newRating-1);
@@ -26,10 +30,28 @@ export default function CreateReview(props) {
     let day = currentDate.getDate();
     let month = currentDate.getMonth() + 1; // getMonth() returns month index starting from 0
     let year = currentDate.getFullYear();
-    
-    // console.log(`${month}/${day}/${year}`);
-    console.log(rating);
+    const date = `${month}/${day}/${year}`;
+    const db = getDatabase();
 
+    const reviewData = {
+      country: props.country,
+      date: date,
+      title: title,
+      rating: rating,
+      tags: Object.fromEntries(checked_tags.map(tag => [tag, true])),
+      desc: desc,
+      likes: likes,
+      dislikes: dislikes
+    };
+    const newReviewRef = push(ref(db, 'review/'));
+    set(newReviewRef, reviewData);
+    
+    const newUserReviewRef = push(ref(db, 'user/' + userId + '/reviews/'));
+    set(newUserReviewRef, newReviewRef.key);
+    const newCountryReviewRef = push(ref(db, `country/${props.country}/reviews/`));
+    set(newCountryReviewRef, newReviewRef.key);
+
+    console.log("review data sent to firebase");
     props.onHide();
   }
 
