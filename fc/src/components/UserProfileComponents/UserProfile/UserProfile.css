@@ -1,0 +1,38 @@
+.profile {
+    display: flex;
+}
+
+.editPfPic {
+    display: flex;
+    flex-direction: column;
+}
+
+/* popup form */
+.popup {
+    display: none;
+    width: 60vw;
+    height:40vh;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -30vh;
+    margin-left: -30vw;
+    background-color: lightblue;
+    padding: 30px;
+    border-radius: 15px;
+    justify-content: center;
+}
+.form {
+    display:flex;
+    flex-direction: column;
+}
+button.cancel {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 100px;
+}
+
+button.submit {
+    margin:30px;
+}
