@@ -1,0 +1,5 @@
+`bash apiserver.sh`
+
+then open new terminal
+
+`bash reactserver.sh`

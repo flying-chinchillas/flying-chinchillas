@@ -1,1 +1,2 @@
-pip install feedparser
+`pip install uvicorn feedparser "fastapi[all]" fastapi-utils`
+

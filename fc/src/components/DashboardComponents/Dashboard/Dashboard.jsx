@@ -35,9 +35,9 @@ export default function Dashboard() {
 
   return (
     <div className={"dash"}>
-      <Logout />
       <div className={"dash-search"}>
       <button className={"profile-button"} onClick={() => gotoProfile()}>Profile</button>
+      <Logout />
       <HeaderSearch countryList={countryList} setCountryList={setCountryList}/>
       </div>
       <div className={"country-grid"}>

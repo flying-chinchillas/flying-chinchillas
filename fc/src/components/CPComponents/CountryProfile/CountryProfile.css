@@ -54,9 +54,19 @@
     background-color: rgba(217, 219, 238);
     font-size: larger;
     margin-bottom: -2vh;
-    position:relative;
+    position: relative;
     padding-left: 3vw;
     padding-top: 2vw;
+}
+
+.review-header button {
+    background-color: plum;
+    border-color: plum;
+}
+
+.review-header button:hover {
+    background-color: rgba(146, 157, 235);
+    border-color: rgba(146, 157, 235);
 }
 
 .country-review {

@@ -1,20 +1,29 @@
-import Parser from 'rss-parser';
-import axios from 'axios';
+import { useState } from 'react';
 
-async function fetchSafetyData(country) {
-    const parser = new Parser();
-    const url = "https://travel.state.gov/_res/rss/TAsTWs.xml";
-    const feed = await parser.parseURL(url);
-    for(let entry of feed.items) {
-        if(entry.title.includes(country)) {
-            const safety = entry.categories[0];
-            const pubDate = entry.pubDate.substring(5);
-            return { pubDate, safety };
+export default function CPTravelAdvisory(props) {
+    const [rating, setRating] = useState([]);
+    
+
+    async function fetchSafetyData(country) {
+        const targetUrl = "http://localhost:8000/";
+        const response = await fetch(targetUrl + country);
+        if (response.ok) {
+            const jsonString = await response.json();
+            setRating([jsonString['pub_data'], jsonString['safety']])
+        }
+        else if (!response.ok) {
+            setRating(['error', 'country not found'])
         }
     }
-    console.log(`${country} not found`);
+
+    fetchSafetyData(props.country);
+
+    return (
+        <div className="rating">
+            Rating - {rating[1]}
+            <div className="pubdate">
+                Updated on {rating[0]} 
+            </div>
+        </div>
+    )
 }
-
-fetchSafetyData("North Korea").then(data => console.log(data));
-
-// npm install rss-parser axios
