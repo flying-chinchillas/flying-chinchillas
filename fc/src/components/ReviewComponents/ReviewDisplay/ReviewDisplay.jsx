@@ -35,7 +35,6 @@ function ReviewDisplay({ country }) {
                     <h2>{review.title}</h2>
                     <p>{review.desc}</p>
                     <StarReview rating={review.rating} />
-                    <p>Star rating: {review.rating}</p>
                     <p>Post date: {review.date}</p>
                     <p>Likes: {review.likes}</p>
                     <p>Dislikes: {review.likes}</p>
