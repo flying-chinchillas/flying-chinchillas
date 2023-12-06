@@ -1,0 +1,60 @@
+.header-search {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+/* Change the color of links on hover */
+.header-search button:hover {
+    background-color: #610bd9;
+    color: white;
+  }
+  
+/* Style the "active" element to highlight the current page */
+.header-search button.active {
+background-color: #610bd9;
+color: white;
+}
+
+.header-search::placeholder {
+    color: #a8a8a8; 
+    font-size: 16px; 
+}
+
+.header-search input::focus {
+    outline: none;
+    border-color: blue; /* Adjust to match the focus border color */
+}
+
+.header-search .fa-search {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #606060; /* Color of the icon */
+    pointer-events: none;
+}
+
+/* Style the search box inside the navigation bar */
+.header-search input[type=text] {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 45px 400px;
+    border: 2px solid rgba(155, 121, 214); 
+    border-radius: 15px;
+    flex-grow: 1; /* Allow the input to grow to fill available space */
+}
+/* #552dde; */
+/* .submit-button {
+background-color: #3c62e4;
+border: none;
+color: white;
+text-decoration: none;
+cursor: pointer;
+margin-left: 1vw;
+border-radius: 10px;
+} */
+/* #3c62e4 */
+
