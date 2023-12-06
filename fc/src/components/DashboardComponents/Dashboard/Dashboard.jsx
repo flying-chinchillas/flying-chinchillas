@@ -36,7 +36,7 @@ export default function Dashboard() {
   return (
     <div className={"dash"}>
       <Logout />
-      <button onClick={() => gotoProfile()}>Profile</button>
+      <button onClick={() => navigate(`/userprofile`)}>profile</button>
       <div className={"dash-search"}>
       <HeaderSearch countryList={countryList} setCountryList={setCountryList}/>
       </div>
@@ -48,7 +48,6 @@ export default function Dashboard() {
           {country}
         </button>)
         )}
-    </div>
     </div>
   );
 }
