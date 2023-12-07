@@ -119,35 +119,39 @@ function UserProfile() {
 
     return (
         <div className="profile">
-
             {/* Left side: user info */}
             <div className="accountInfo">
-                <img src={imgUrl} alt='profile' />
+                <button class = "editButton" onClick={(event) =>openForm(event.target.id)}>Edit profile</button>
+                <img className = "profile-image" src={imgUrl} alt='profile' />
+                <p className="nameText">Chinchillas</p> {/* need users' name */} 
+                <p className="userInfor">@{userEmail}</p>
                 <div className="editPfPic" id="editPfPic">
                     <input type="file" ref={fileInput} />
                     <button onClick={handleUpload}>Upload</button>
                     {/* <button id="File" onClick={(event) =>openForm(event.target.id)}>Open</button> */}
                 </div>
-                <div className="email">
-                    Email: {userEmail} <button id="email" onClick={(event) =>openForm(event.target.id)}>Edit</button>
-                </div>
+                <button id="email" onClick={(event) =>openForm(event.target.id)}>Edit email</button> 
                 <button id="password" onClick={(event) =>openForm(event.target.id)}>Change Password</button>
             </div>
 
             {/* Middle Section: reviews created by user */}
-            <div className="reviewContainer">Reviews Created
+            <div className="reviewContainer"> Reviews Made
                 {reviews.length > 0 ? (
-                    <div className="reviews">
+                    <div className="reviewContainerContent">
                         {reviews.map((review, index) => (
                             <div key={index}>
                                 {/* Replace this with the structure of your review data */}
-                                <h2>{review.title}</h2>
-                                <h3>{review.country}</h3>
-                                <p>{review.date}</p>
-                                <p>Likes: {review.likes}</p>
-                                <p>Dislikes: {review.dislikes}</p>
-                                <p>Rating: {review.rating}</p>
-                                <p>{review.desc}</p>
+                                <div className="singleReviewBox"> 
+                                {/* <h3>{review.title}</h3> */}
+                                <p className="reviewTitle">{review.title}</p>
+                                <p className="reviewTitle">{review.country}</p> 
+                                {/* <h3>{review.country}</h3> */}
+                                <p className="reviewTitle">{review.date}</p>
+                                <p className="reviewTitle">Likes: {review.likes}</p>
+                                <p className="reviewTitle">Dislikes: {review.dislikes}</p>
+                                <p className="reviewTitle">Rating: {review.rating}</p>
+                                <p className="reviewTitle">{review.desc}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -159,11 +163,17 @@ function UserProfile() {
             {/* Right side: visited/fav countries */}
             <div className="rightSide">
                 <div className="visitedContainer">Visited Countries
-                    <div className="countries">Country 1</div>
+                <div className="visitedContainerContent">
+                    <div className="countries">This is visited country: Country 1</div>
                 </div>
+                </div>
+
                 <div className="favContainer">Favorite Countries
-                    <div className="countries">Country 1</div>
+                <div className="favContainerContent">
+                    <div className="countries">This is favorite country: Country 1</div>
                 </div>
+                </div>
+                
             </div>
 
             {/* popup form */}

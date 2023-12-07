@@ -1,5 +1,149 @@
 .profile {
     display: flex;
+    background: linear-gradient(rgba(253,252,255) 0%, rgba(225, 210, 255) 100%);
+    background-size: 100%;
+    min-height: 100vh;
+    overflow: scroll;
+}
+
+.accountInfo{
+    background-color: rgba(146, 157, 235);
+    height: 680px;
+    width: 380px;
+    margin-left: 20px;
+    margin-top: 100px;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.profile-image{
+    height: 220px;
+    width: 220px;
+    margin-top: 30px;
+    margin-left: 45px;
+    border-radius: 100%;
+}
+
+.editButton{
+    margin-left: 90px;
+    margin-top: 20px;
+    background-color: rgba(146, 157, 235);
+    font-family: 'Montserrat Variable';
+    font-size: 20px;
+    text-decoration: underline;
+    border-style: none;
+}
+
+.nameText{
+    color: black;
+    font-size: 40px;
+    font-family: 'Mochiy Pop P One';
+    font-weight: 50;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.userInfor{
+    font-family: 'Montserrat Variable';
+    font-size: 20px; 
+    text-align: center;
+    margin-top: 40px; 
+}
+
+.reviewContainer{
+    background-color: rgba(231, 235, 255);
+    height: 680px;
+    width: 640px;
+    margin-left: 35px;
+    margin-top: 100px;
+    border-radius: 30px;
+    font-size: 25px;
+    font-family: 'Mochiy Pop P One';
+    font-weight: 40px;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 15px;
+}
+
+.reviewContainerContent{
+    background-color: rgba(146, 157, 235);
+    height: 610px;
+    width: 640px;
+    margin-top: 20px;
+    overflow: scroll;
+}
+
+.singleReviewBox{
+    display: flex;
+    background-color: white;
+    height: auto;
+    width: 600px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.reviewTitle{
+    font-family: 'Montserrat Variable';
+    font-size: 20px; 
+    text-align: center;
+    margin-top: 20px;    
+}
+
+.visitedContainer{
+    background-color: rgba(231, 235, 255);
+    height: 330px;
+    width: 380px;
+    margin-left: 35px;
+    margin-top: 100px;
+    border-radius: 30px;
+    overflow: hidden;
+    font-size: 25px;
+    font-family: 'Mochiy Pop P One';
+    font-weight: 40px;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 15px;
+}
+
+.visitedContainerContent{
+    background-color: rgba(146, 157, 235);
+    height: 330px;
+    width: 380px;
+    margin-top: 20px;
+    overflow: scroll;
+}
+
+.favContainer{
+    background-color: rgba(231, 235, 255);
+    height: 330px;
+    width: 380px;
+    margin-left: 35px;
+    margin-top: 20px;
+    border-radius: 30px;
+    overflow: hidden;
+    font-size: 25px;
+    font-family: 'Mochiy Pop P One';
+    font-weight: 40px;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 15px;
+}
+
+.favContainerContent{
+    background-color: rgba(146, 157, 235);
+    height: 330px;
+    width: 380px;
+    margin-top: 20px;
+    overflow: scroll;
+}
+
+.countries{
+    font-family: 'Montserrat Variable';
+    font-size: 20px; 
+    text-align: center;
+    margin-top: 20px;  
 }
 
 .editPfPic {
