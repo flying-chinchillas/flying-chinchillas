@@ -32,7 +32,13 @@ function ReviewDisplay({ country }) {
     return (
         <div>
             {reviews.map((review, index) => (
-                <div style={{height: "24vh", borderRadius: "8px", paddingLeft: "10px"}}className={"country-review"} key={index}>
+                <div style={{
+                    height: "24vh", 
+                    borderRadius: "8px",
+                    paddingLeft: "10px",
+                    backgroundColor: "rgba(217, 219, 238)",
+                    margin: "4vh"
+                }}className={"country-review"} key={index}>
                     <div>
                         <h1 style={{fontSize: "large", padding: "10px"}}>{review.title}</h1>
                         <StarReview rating={review.rating} />

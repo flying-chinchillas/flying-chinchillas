@@ -72,16 +72,6 @@
     border-color: rgba(146, 157, 235);
 }
 
-.country-review {
-    background-color: rgba(217, 219, 238);
-    width: 40vw;
-    height: 20vh;
-    margin-left: 3.5vw;
-    margin-top: 4vh;
-    border-radius: 7px;
-    border-radius: 10px 10px 0px 0px;
-}
-
 .country-name {
     margin-top: 2vh;
     margin-bottom: 2vh;

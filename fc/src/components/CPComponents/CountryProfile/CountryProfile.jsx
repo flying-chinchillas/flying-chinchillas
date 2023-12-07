@@ -88,17 +88,6 @@ export default function CountryProfile() {
                 />                
             </div>
             <div className={"review-display"}>
-                {/* {temp_reviews.map((review) => (
-                    
-                    <div className={"country-review"} key={review}>
-                        {review}
-                        <UpvoteButton></UpvoteButton>
-                        <DownvoteButton></DownvoteButton>
-                        <ReplyButton></ReplyButton>
-                        <StarReview></StarReview>
-                    </div>
-                    )
-                )} */}
                 <ReviewDisplay country={country} />
             </div>
         </div>
