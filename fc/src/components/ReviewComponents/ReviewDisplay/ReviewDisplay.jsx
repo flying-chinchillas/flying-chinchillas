@@ -39,7 +39,7 @@ function ReviewDisplay({ country }) {
                         <p>{review.desc}</p>
                         <p>Post date: {review.date}</p>
                     </div>
-                    <UpvoteButton upvotes={review.likes}></UpvoteButton>
+                    <UpvoteButton upvotes={review.likes}/>
                 </div>
             ))}
         </div>
