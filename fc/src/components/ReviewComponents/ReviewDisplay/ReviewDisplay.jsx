@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getDatabase, ref, get, child } from "firebase/database";
 import StarReview from '../StarReview/StarReview';
+import UpvoteButton from '../../ReviewComponents/UpvoteButton/UpvoteButton';
 
 function ReviewDisplay({ country }) {
     const [reviews, setReviews] = useState([]);
@@ -31,14 +32,14 @@ function ReviewDisplay({ country }) {
     return (
         <div>
             {reviews.map((review, index) => (
-                <div key={index}>
-                    <h2>{review.title}</h2>
-                    <p>{review.desc}</p>
-                    <StarReview rating={review.rating} />
-                    <p>Star rating: {review.rating}</p>
-                    <p>Post date: {review.date}</p>
-                    <p>Likes: {review.likes}</p>
-                    <p>Dislikes: {review.likes}</p>
+                <div style={{height: "24vh", borderRadius: "8px", paddingLeft: "10px"}}className={"country-review"} key={index}>
+                    <div>
+                        <h1 style={{fontSize: "large", padding: "10px"}}>{review.title}</h1>
+                        <StarReview rating={review.rating} />
+                        <p>{review.desc}</p>
+                        <p>Post date: {review.date}</p>
+                    </div>
+                    <UpvoteButton upvotes={review.likes}></UpvoteButton>
                 </div>
             ))}
         </div>
