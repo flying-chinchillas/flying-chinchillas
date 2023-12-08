@@ -76,7 +76,7 @@ const Signup = () => {
                 
                 <label className='signup-label'>
                     Already have an account? {' '}
-                    <NavLink to="/login" >
+                    <NavLink to="/" >
                         Sign in
                     </NavLink> 
                 </label>                  
