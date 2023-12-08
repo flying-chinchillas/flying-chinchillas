@@ -29,7 +29,7 @@
 
 ## Packages to install before getting started
 
-`npm install react react-dom react-router-dom firebase react-bootstrap bootstrap leaflet @fontsource/mochiy-pop-p-one @fontsource-variable/montserrat @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons`
+`npm install react react-dom react-router-dom firebase react-bootstrap bootstrap leaflet @fontsource/mochiy-pop-p-one @fontsource-variable/montserrat @fontsource/happy-monkey @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons`
 `pip install uvicorn feedparser "fastapi[all]" fastapi-utils` \
 
 You may install all of the following packages described in detail of its purpose in two lines as given above.
@@ -45,6 +45,8 @@ Installs open-source JavaScript library used to build web mapping applications.
 Loads one of the two main fonts on the app.
 - `npm install @fontsource-variable/montserrat`\
 Loads one of the two main fonts on the app.
+- `npm install @fontsource/happy-monkey`\
+Loads the font for user profile page.
 - `npm install --save @fortawesome/react-fontawesome`\
 Installs the Font Awesome's scalable vector icons library.
 - `npm install --save @fortawesome/free-solid-svg-icons`\
