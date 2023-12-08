@@ -1,7 +1,8 @@
 import "./CountryProfile.css";
 import HeaderSearch from "../../HeaderComponents/HeaderSearch/HeaderSearch";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CPMap from "../CPMap/CPMap";
+import { getDatabase, ref, get, child } from "firebase/database";
 import countryInfo from '../../../countryInfo.json';
 import { useParams } from 'react-router-dom';
 import CountryIcon from "../../DashboardComponents/CountryIcon/CountryIcon";
@@ -22,8 +23,7 @@ import { faMap as faRegularMap} from '@fortawesome/free-regular-svg-icons';
 import ReviewDisplay from "../../ReviewComponents/ReviewDisplay/ReviewDisplay";
 
 export default function CountryProfile() {
-    const temp_reviews = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    const vulnerable_grps = ["Senior Citizens", "Children", "Women", "Race", "Solo Travel", "LGBTQ+", "Disabilities", "Religion"];
+    const vulnerable_grps = ["senior-citizens", "children", "women", "race", "solo-travel", "LGBTQ+", "disabilities", "religion", "all"];
     const { country } = useParams();
     const formattedCountryName = country.charAt(0).toUpperCase() + country.slice(1);
     const countryData = countryInfo[formattedCountryName];
@@ -31,9 +31,19 @@ export default function CountryProfile() {
     const [isFavorited, setIsFavorited] = useState(false);
     const [visited, setVisited] = useState(false);
     const [modalShow, setModalShow] = React.useState(false);
+    const [reviews, setReviews] = useState([]);
+    const [displayedReviews, setDisplayedReviews] = useState([]);
 
-    function handleClick() {
-        console.log('its happening o');
+    function handleClick(grp) {
+        if(grp == "all") {
+            setDisplayedReviews(reviews);
+        }
+        else {
+            const filteredRev = reviews.filter(function (review) {
+                return review.tags.includes(grp);
+            })
+            setDisplayedReviews(filteredRev);
+        }
       }
     const handleFavoriteClick = () => {
         setIsFavorited(!isFavorited);
@@ -41,6 +51,30 @@ export default function CountryProfile() {
     const handleVisitedClick = () => {
         setVisited(!visited);
     }
+
+    useEffect(() => {
+        const db = getDatabase();
+        const countryRef = ref(db, `country/${country}/reviews`);
+
+        get(countryRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                const reviewIds = Object.values(snapshot.val());
+                const reviewPromises = reviewIds.map(id => 
+                    get(child(ref(db, 'review'), id))
+                );
+
+                Promise.all(reviewPromises).then(reviewSnapshots => {
+                    const reviews = reviewSnapshots.map(snap => snap.val());
+                    setReviews(reviews);
+                    setDisplayedReviews(reviews);
+                });
+            } else {
+                console.log("No data available");
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+    }, [country]);
 
   return (
 
@@ -88,7 +122,7 @@ export default function CountryProfile() {
                 />                
             </div>
             <div className={"review-display"}>
-                <ReviewDisplay country={country} />
+                <ReviewDisplay displayedReviews={displayedReviews}/>
             </div>
         </div>
         <div className={"v-groups-display"}>
