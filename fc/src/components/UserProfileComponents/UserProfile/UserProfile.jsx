@@ -18,6 +18,7 @@ function UserProfile() {
     const [update, setUpdate] = useState(null);
     const storageRef = ref(storage, 'pfimages/' + userId);
     const [favorites, setFavorites] = useState([]);
+    const [visited, setVisited] = useState([]);
 
     const db = getDatabase();
     useEffect(() => {
@@ -40,6 +41,14 @@ function UserProfile() {
             const data = snapshot.val();
             if (data) {
                 setFavorites(Object.values(data)); 
+            }
+        }, {
+            onlyOnce: true
+        });
+        onValue(dbref(db, 'user/' + userId + '/visited'), (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                setVisited(Object.values(data)); 
             }
         }, {
             onlyOnce: true
@@ -176,7 +185,11 @@ function UserProfile() {
             <div className="rightSide">
                 <div className="visitedContainer">Visited Countries
                 <div className="visitedContainerContent">
-                    <div className="countries">This is visited country: Country 1</div>
+                    {
+                        visited.map((visCountry) => (
+                            <div className="countries">{visCountry}</div>
+                        ))
+                    }  
                 </div>
                 </div>
 

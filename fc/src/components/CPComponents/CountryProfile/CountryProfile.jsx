@@ -56,6 +56,8 @@ export default function CountryProfile() {
     };
     const handleVisitedClick = () => {
         setVisited(!visited);
+        const db = getDatabase();
+        push(ref(db, 'user/' + userId + '/visited/'), country);
     }
 
     function getReviews() {
