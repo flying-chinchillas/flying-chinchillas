@@ -3,7 +3,6 @@
   left: 37.3vw; /* Same as the star rating horizontal position */
   text-align: right;
   display: inline-block;
-  margin-bottom: 10vh;
 }
 
 .upvote-button {

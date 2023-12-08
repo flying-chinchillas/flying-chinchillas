@@ -36,12 +36,13 @@
 }
 .overall-rating {
     background-color: rgba(146, 157, 235);
-    padding-bottom: 7.5vh;
+    padding-bottom: 6vh;
     border-radius: 10px;
 }
 .side-bar {
     margin: 2vw;
     width: 25vw;
+    font-size: small;
 }
 
 .review-display {
