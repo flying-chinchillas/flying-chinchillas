@@ -53,6 +53,7 @@ export default function CreateReview(props) {
 
     console.log("review data sent to firebase");
     props.onHide();
+    props.getReviews();
   }
 
   return (
