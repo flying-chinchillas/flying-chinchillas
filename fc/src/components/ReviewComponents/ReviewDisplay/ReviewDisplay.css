@@ -7,3 +7,9 @@
     font-size: small;
     padding: 10vh;
 }
+
+.tags {
+    display:grid;
+    font-size: x-small;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}

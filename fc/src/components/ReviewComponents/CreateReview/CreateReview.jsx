@@ -38,7 +38,7 @@ export default function CreateReview(props) {
       date: date,
       title: title,
       rating: rating,
-      tags: Object.fromEntries(checked_tags.map(tag => [tag, true])),
+      tags: checked_tags,
       desc: desc,
       likes: likes,
       dislikes: dislikes
