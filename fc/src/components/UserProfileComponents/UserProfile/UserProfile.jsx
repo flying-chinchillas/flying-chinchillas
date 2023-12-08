@@ -3,6 +3,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import { getDatabase, ref as dbref, onValue, get } from 'firebase/database';
 import React, { useRef, useState, useEffect } from 'react';
 import { getAuth, updatePassword, reload, verifyBeforeUpdateEmail, fetchSignInMethodsForEmail} from "firebase/auth";
+import HeaderSearch from "../../HeaderComponents/HeaderSearch/HeaderSearch";
 import './UserProfile.css';
 
 function UserProfile() {
@@ -127,6 +128,8 @@ function UserProfile() {
     getPFPic();
 
     return (
+        <div className="head-userprofile">
+            <HeaderSearch/> 
         <div className="profile">
             {/* Left side: user info */}
             <div className="accountInfo">
@@ -216,6 +219,7 @@ function UserProfile() {
             </div>
 
         </div>
+        </div> 
     );
 
 }

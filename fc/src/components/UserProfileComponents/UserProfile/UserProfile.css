@@ -1,17 +1,26 @@
+.head-userprofile {
+    background: rgba(253,252,255) 0%;
+    max-height: 100vh;
+    display: grid;
+    margin-bottom: 0px;
+
+}
+
 .profile {
     display: flex;
     background: linear-gradient(rgba(253,252,255) 0%, rgba(225, 210, 255) 100%);
     background-size: 100%;
     min-height: 100vh;
     overflow: scroll;
+    margin-top: 0px;
 }
 
 .accountInfo{
     background-color: rgba(146, 157, 235);
-    height: 680px;
+    height: 660px;
     width: 380px;
     margin-left: 20px;
-    margin-top: 100px;
+    margin-top: 10px;
     border-radius: 30px;
     padding: 20px;
 }
@@ -52,10 +61,10 @@
 
 .reviewContainer{
     background-color: rgba(231, 235, 255);
-    height: 680px;
+    height: 660px;
     width: 640px;
     margin-left: 35px;
-    margin-top: 100px;
+    margin-top: 10px;
     border-radius: 30px;
     font-size: 25px;
     font-family: 'Mochiy Pop P One';
@@ -67,10 +76,12 @@
 
 .reviewContainerContent{
     background-color: rgba(146, 157, 235);
-    height: 610px;
+    height: 590px;
     width: 640px;
     margin-top: 20px;
     overflow: scroll;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .singleReviewBox{
@@ -78,7 +89,8 @@
     background-color: white;
     height: auto;
     width: 600px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     margin-left: 20px;
     border-radius: 20px;
     padding: 10px;
@@ -93,10 +105,10 @@
 
 .visitedContainer{
     background-color: rgba(231, 235, 255);
-    height: 330px;
+    height: 320px;
     width: 380px;
     margin-left: 35px;
-    margin-top: 100px;
+    margin-top: 10px;
     border-radius: 30px;
     overflow: hidden;
     font-size: 25px;
@@ -109,7 +121,7 @@
 
 .visitedContainerContent{
     background-color: rgba(146, 157, 235);
-    height: 330px;
+    height: 320px;
     width: 380px;
     margin-top: 20px;
     overflow: scroll;
@@ -117,7 +129,7 @@
 
 .favContainer{
     background-color: rgba(231, 235, 255);
-    height: 330px;
+    height: 320px;
     width: 380px;
     margin-left: 35px;
     margin-top: 20px;
@@ -133,7 +145,7 @@
 
 .favContainerContent{
     background-color: rgba(146, 157, 235);
-    height: 330px;
+    height: 320px;
     width: 380px;
     margin-top: 20px;
     overflow: scroll;
