@@ -75,8 +75,7 @@ export default function CountryProfile() {
             console.error(error);
         });
     }
-
-    useEffect(getReviews);
+    useEffect(() => {getReviews()}, [])
 
   return (
 
