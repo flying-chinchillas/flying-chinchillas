@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import { getDatabase, ref, get, child } from "firebase/database";
 import StarReview from '../StarReview/StarReview';
 import UpvoteButton from '../../ReviewComponents/UpvoteButton/UpvoteButton';
 
@@ -15,7 +13,7 @@ function ReviewDisplay({ displayedReviews}) {
                     margin: "4vh"
                 }}className={"country-review"} key={index}>
                         <h1 style={{fontSize: "large", padding: "10px"}}>{review.title}</h1>
-                        <StarReview rating={review.rating} />
+                        <StarReview initialRating={review.rating} />
                         <p>{review.desc}</p>
                         <p style={{fontSize: "small"}}>Post date: {review.date}</p>
                         <div className={"tags"} style={{
