@@ -1,0 +1,10 @@
+.logout-button{
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/flying-chinchillas.appspot.com/o/logout_icon.png?alt=media&token=72922a75-9c38-465e-bd09-9fb4ba118157);
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: none;
+    margin-right: 22px; /* hard coding, should be 20px */
+    margin-top: 7px;  /* hard coding, should be deleted */
+}
