@@ -9,8 +9,9 @@ body{
     background-color: rgba(146, 157, 235);
     height: 620px;
     width: 420px;
-    margin-left: 520px;
-    margin-top: 60px;
+    margin: auto;
+    margin-top: 80px;
+    position: relative;
     border-radius: 30px;
     padding: 20px;
 }

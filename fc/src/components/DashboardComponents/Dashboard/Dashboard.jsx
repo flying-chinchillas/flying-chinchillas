@@ -2,7 +2,6 @@ import "./Dashboard.css";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
-import Logout from '../../Logout/Logout';
 import CountryIcon from "../CountryIcon/CountryIcon";
 import countryInfo from "../../../countryInfo.json";
 import "@fontsource/mochiy-pop-p-one";
@@ -27,16 +26,11 @@ export default function Dashboard() {
     navigate(`/countryprofile/${country}`);
   }
 
-  // temporary-delete
-  function gotoProfile(){
-    navigate('/userprofile')
-  }
+
 
   return (
     <div className={"dash"}>
       <div className={"dash-search"}>
-      <button className={"profile-button"} onClick={() => gotoProfile()}>Profile</button>
-      <Logout />
       <HeaderSearch countryList={countryList} setCountryList={setCountryList}/>
       </div>
       <div className={"country-grid"}>

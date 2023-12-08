@@ -5,10 +5,10 @@
     position: relative;
 }
 /* Change the color of links on hover */
-.header-search button:hover {
+/* .header-search button:hover {
     background-color: #610bd9;
     color: white;
-  }
+  } */
   
 /* Style the "active" element to highlight the current page */
 .header-search button.active {
@@ -41,7 +41,7 @@ color: white;
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    margin: 45px 400px;
+    margin: 35px 50px;
     border: 2px solid rgba(155, 121, 214); 
     border-radius: 15px;
     flex-grow: 1; /* Allow the input to grow to fill available space */
@@ -57,4 +57,30 @@ margin-left: 1vw;
 border-radius: 10px;
 } */
 /* #3c62e4 */
+
+.header-logo-image{
+    height: 100px;
+    width: 100px;
+    margin-left: 40px;
+}
+
+.profile-button{
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/flying-chinchillas.appspot.com/o/profile_icon.png?alt=media&token=7f70cdd2-49f0-4dbf-8418-2aadaef43e38);
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: none;
+    margin-right: 20px;
+}
+
+.dashboard-button{
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/flying-chinchillas.appspot.com/o/dashboard_icon.png?alt=media&token=2e931cf9-194d-480c-84ba-3e6ec3865767);
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: none;
+    margin-right: 20px;
+}
 

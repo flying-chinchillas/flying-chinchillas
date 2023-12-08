@@ -26,16 +26,12 @@ export default function Logout(e) {
         <main>
             <section>
             <div>
-                <div>                  
-                    <h1> Flying Chinchillas </h1>                                                                            
-                                               
-                        <button
-                        onClick={onLogout}
-                        type='submit'
-                        >
-                            Logout
-                        </button>                                                                                                          
-                </div>
+                                                                           
+                <button className={"logout-button"}
+                onClick={onLogout}
+                type='submit'
+                >
+                </button>                                                                                                          
             </div>
         </section>
         </main>
