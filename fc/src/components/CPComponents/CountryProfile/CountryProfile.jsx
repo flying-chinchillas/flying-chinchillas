@@ -2,7 +2,7 @@ import "./CountryProfile.css";
 import HeaderSearch from "../../HeaderComponents/HeaderSearch/HeaderSearch";
 import React, { useEffect, useState } from 'react';
 import CPMap from "../CPMap/CPMap";
-import { getDatabase, ref, get, child } from "firebase/database";
+import { getDatabase, ref, get, child, set, push } from "firebase/database";
 import countryInfo from '../../../countryInfo.json';
 import { useParams } from 'react-router-dom';
 import CountryIcon from "../../DashboardComponents/CountryIcon/CountryIcon";
@@ -21,6 +21,7 @@ import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons';
 import { faMap as faSolidMap } from '@fortawesome/free-solid-svg-icons';
 import { faMap as faRegularMap} from '@fortawesome/free-regular-svg-icons';
 import ReviewDisplay from "../../ReviewComponents/ReviewDisplay/ReviewDisplay";
+import { getAuth } from "firebase/auth";
 
 export default function CountryProfile() {
     const vulnerable_grps = ["senior-citizens", "children", "women", "race", "solo-travel", "lgbtq+", "disabilities", "religion", "all"];
@@ -33,6 +34,8 @@ export default function CountryProfile() {
     const [modalShow, setModalShow] = React.useState(false);
     const [reviews, setReviews] = useState([]);
     const [displayedReviews, setDisplayedReviews] = useState([]);
+    const auth = getAuth().currentUser;
+    const userId = auth.uid;
 
     function handleClick(grp) {
         if(grp == "all") {
@@ -47,6 +50,9 @@ export default function CountryProfile() {
       }
     const handleFavoriteClick = () => {
         setIsFavorited(!isFavorited);
+        const db = getDatabase();
+        push(ref(db, 'user/' + userId + '/favorite/'), country);
+
     };
     const handleVisitedClick = () => {
         setVisited(!visited);
