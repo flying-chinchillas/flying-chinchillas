@@ -16,6 +16,7 @@ function UserProfile() {
     const [reviews, setReviews] = useState([]);
     const [update, setUpdate] = useState(null);
     const storageRef = ref(storage, 'pfimages/' + userId);
+    const [favorites, setFavorites] = useState([]);
 
     const db = getDatabase();
     useEffect(() => {
@@ -30,6 +31,14 @@ function UserProfile() {
                 Promise.all(reviewPromises).then((reviews) => {
                     setReviews(reviews.filter(review => review !== null));
                 });   
+            }
+        }, {
+            onlyOnce: true
+        });
+        onValue(dbref(db, 'user/' + userId + '/favorite'), (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                setFavorites(Object.values(data)); 
             }
         }, {
             onlyOnce: true
@@ -168,9 +177,13 @@ function UserProfile() {
                 </div>
                 </div>
 
-                <div className="favContainer">Favorite Countries
+                <div className="favContainer">Favorited Countries
                 <div className="favContainerContent">
-                    <div className="countries">This is favorite country: Country 1</div>
+                    {
+                        favorites.map((favorite) => (
+                            <div className="countries">{favorite}</div>
+                        ))
+                    } 
                 </div>
                 </div>
                 
