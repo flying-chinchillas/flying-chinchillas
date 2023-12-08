@@ -5,6 +5,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { getAuth, updatePassword, reload, verifyBeforeUpdateEmail, fetchSignInMethodsForEmail} from "firebase/auth";
 import HeaderSearch from "../../HeaderComponents/HeaderSearch/HeaderSearch";
 import './UserProfile.css';
+import '@fontsource/happy-monkey';
 
 function UserProfile() {
     const fileInput = useRef();
@@ -163,15 +164,18 @@ function UserProfile() {
                             <div key={index}>
                                 {/* Replace this with the structure of your review data */}
                                 <div className="singleReviewBox"> 
-                                {/* <h3>{review.title}</h3> */}
-                                <p className="reviewTitle">{review.title}</p>
-                                <p className="reviewTitle">{review.country}</p> 
-                                {/* <h3>{review.country}</h3> */}
-                                <p className="reviewTitle">{review.date}</p>
-                                <p className="reviewTitle">Likes: {review.likes}</p>
-                                <p className="reviewTitle">Dislikes: {review.dislikes}</p>
-                                <p className="reviewTitle">Rating: {review.rating}</p>
-                                <p className="reviewTitle">{review.desc}</p>
+                                    <p className="reviewTitle">{review.title}</p>
+                                    <div className="reviewLines">
+                                        <p className="reviewCountryandDate">{review.country}</p> 
+                                        <p className="reviewCountryandDate">{review.date}</p>
+                                    </div>
+                                    <p className="reviewTitle">{'"'}{review.desc}{'"'}</p>
+                                    <div className="reviewLines">
+                                        <p className="reviewCountryandDate">Likes: {review.likes}</p>
+                                        <p className="reviewCountryandDate">Dislikes: {review.dislikes}</p>
+                                        <p className="reviewCountryandDate">Rating: {review.rating}</p>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         ))}
