@@ -12,7 +12,7 @@ export default function Logout(e) {
     const onLogout = () => {
         const auth = getAuth();
         signOut(auth).then(() => {
-            navigate("/Login")
+            navigate("/")
         })
         .catch((error) => {
             const errorCode = error.code;
