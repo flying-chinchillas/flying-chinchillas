@@ -23,7 +23,7 @@ import { faMap as faRegularMap} from '@fortawesome/free-regular-svg-icons';
 import ReviewDisplay from "../../ReviewComponents/ReviewDisplay/ReviewDisplay";
 
 export default function CountryProfile() {
-    const vulnerable_grps = ["senior-citizens", "children", "women", "race", "solo-travel", "LGBTQ+", "disabilities", "religion", "all"];
+    const vulnerable_grps = ["senior-citizens", "children", "women", "race", "solo-travel", "lgbtq+", "disabilities", "religion", "all"];
     const { country } = useParams();
     const formattedCountryName = country.charAt(0).toUpperCase() + country.slice(1);
     const countryData = countryInfo[formattedCountryName];
