@@ -2,7 +2,7 @@
   position: relative;
  /* Adjusted the right value to create space between upvote and downvote */
   text-align: right;
-  top: 120px;
+  /* top: 120px; */
   left: 30.5vw;
   display: inline-block; /* Added this line to make the container inline-block */
 }

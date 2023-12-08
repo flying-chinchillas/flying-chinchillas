@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './DownvoteButton.css';
 
-const DownvoteButton = () => {
-  const [downvoteCount, setDownvoteCount] = useState(0);
+const DownvoteButton = ({ downvotes }) => {
+  const [downvoteCount, setDownvoteCount] = useState(downvotes);
 
   const handleDownvote = () => {
     setDownvoteCount(downvoteCount + 1);
