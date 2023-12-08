@@ -52,7 +52,7 @@ export default function CountryProfile() {
         setVisited(!visited);
     }
 
-    useEffect(() => {
+    function getReviews() {
         const db = getDatabase();
         const countryRef = ref(db, `country/${country}/reviews`);
 
@@ -74,7 +74,9 @@ export default function CountryProfile() {
         }).catch((error) => {
             console.error(error);
         });
-    }, [country]);
+    }
+
+    useEffect(getReviews);
 
   return (
 
@@ -119,6 +121,7 @@ export default function CountryProfile() {
                     show={modalShow}
                     onHide={() => setModalShow(false)}
                     country={country}
+                    getReviews={getReviews}
                 />                
             </div>
             <div className={"review-display"}>
