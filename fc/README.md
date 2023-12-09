@@ -13,6 +13,7 @@
 <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue" style="padding:5px"/>
 <img src="https://img.shields.io/badge/SQLAlchemy-d62916.svg?&style=for-the-badge&logoColor=white" style="padding:5px"/>
 <img src="https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=FASTAPI&logoColor=white" style="padding:5px"/>
+<img src="https://img.shields.io/badge/pydantic-e72564?style=for-the-badge&logoColor=white" style="padding:5px"/>
 <img src="https://img.shields.io/badge/Leaflet-199900?style=for-the-badge&logo=Leaflet&logoColor=white" style="padding:5px"/>
 <img src="https://img.shields.io/badge/OpenStreetMap-7EBC6F?style=for-the-badge&logo=OpenStreetMap&logoColor=white" style="padding:5px"/>
 <img src="https://img.shields.io/badge/flagpedia-ac0414.svg?&style=for-the-badge&logoColor=white" style="padding:5px"/>
