@@ -28,6 +28,86 @@
     - Country profile page: Each country has a 1 through 4 safety rating, fetched from the US government travel advisory API. Each country has their flag and location map as well as reviews.
     - User profile page: The reviews which the user created are displayed here. The left portion of the page has the user settings which include uploading a profile picture and resetting their email and password. A list of favorites and visited countries are shown on the left side.
 
+fc
+├── apiserver.sh
+├── backend
+│  ├── crud.py
+│  ├── database.py
+│  ├── main.py
+│  ├── models.py
+│  ├── README.md
+│  ├── schemas.py
+│  └── sql_app.db
+├── public
+│  ├── dislike.png
+│  ├── favicon.ico
+│  ├── index.html
+│  ├── like.png
+│  ├── manifest.json
+│  └── robots.txt
+├── README.md
+├── reactserver.sh
+└── src
+  ├── Components
+  │  ├── App
+  │  │  └── App.jsx
+  │  ├── CPComponents
+  │  │  ├── CountryProfile
+  │  │  │  ├── CountryProfile.css
+  │  │  │  └── CountryProfile.jsx
+  │  │  ├── CPMap
+  │  │  │  ├── CPMap.css
+  │  │  │  └── CPMap.jsx
+  │  │  └── CPTravelAdvisory
+  │  │    └── CPTravelAdvisory.jsx
+  │  ├── DashboardComponents
+  │  │  ├── CountryIcon
+  │  │  │  ├── CountryIcon.css
+  │  │  │  └── CountryIcon.jsx
+  │  │  └── Dashboard
+  │  │    ├── Dashboard.css
+  │  │    └── Dashboard.jsx
+  │  ├── HeaderComponents
+  │  │  └── HeaderSearch
+  │  │    ├── HeaderSearch.css
+  │  │    └── HeaderSearch.jsx
+  │  ├── Login
+  │  │  ├── Login.css
+  │  │  └── Login.jsx
+  │  ├── Logout
+  │  │  ├── Logout.css
+  │  │  └── Logout.jsx
+  │  ├── ReviewComponents
+  │  │  ├── CreateReview
+  │  │  │  └── CreateReview.jsx
+  │  │  ├── DownvoteButton
+  │  │  │  ├── DownvoteButton.css
+  │  │  │  └── DownvoteButton.jsx
+  │  │  ├── ReplyButton
+  │  │  │  ├── ReplyButton.css
+  │  │  │  └── ReplyButton.jsx
+  │  │  ├── ReviewDisplay
+  │  │  │  ├── ReviewDisplay.css
+  │  │  │  └── ReviewDisplay.jsx
+  │  │  ├── StarReview
+  │  │  │  ├── StarReview.css
+  │  │  │  └── StarReview.jsx
+  │  │  └── UpvoteButton
+  │  │    ├── UpvoteButton.css
+  │  │    └── UpvoteButton.jsx
+  │  ├── Signup
+  │  │  ├── Signup.css
+  │  │  └── Signup.jsx
+  │  └── UserProfileComponents
+  │    └── UserProfile
+  │      ├── UserProfile.css
+  │      └── UserProfile.jsx
+  ├── countryInfo.json
+  ├── firebase.jsx
+  ├── index.css
+  ├── index.js
+  └── logo.svg
+
 ## Packages to install before getting started
 
 `npm install react react-dom react-router-dom firebase react-bootstrap bootstrap leaflet @fontsource/mochiy-pop-p-one @fontsource-variable/montserrat @fontsource/happy-monkey @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons`
